@@ -1,0 +1,1255 @@
+@font-face {
+    font-family: 'Myri';
+    src: url(../fonts/myriad.otf);
+}
+
+.gs {
+    overflow: hidden;
+}
+
+/* tempatnya background */
+.bg1 {
+    background: url("../images/bg1.jpg") no-repeat;
+    background-size: cover;
+    -webkit-transition-duration: 1s;
+    -moz-transition-duration: 1s;
+    -o-transition-duration: 1s;
+    -transition-duration: 1s;
+}
+
+.bg2 {
+    background: url("../images/bg2.jpg") no-repeat;
+    background-size: cover;
+    -webkit-transition-duration: 1s;
+    -moz-transition-duration: 1s;
+    -o-transition-duration: 1s;
+    -transition-duration: 1s;
+}
+
+.bg3 {
+    background: url("../images/bg3.jpg") no-repeat;
+    background-size: cover;
+    -webkit-transition-duration: 1s;
+    -moz-transition-duration: 1s;
+    -o-transition-duration: 1s;
+    -transition-duration: 1s;
+}
+
+.bg4 {
+    background-image: url("../images/bg4.jpg");
+    background-size: cover;
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+    -transition-duration: 0.5s;
+    margin: 0;
+}
+
+.bg5 {
+    background-image: url(../images/bg.jpg);
+    background-size: cover;
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+    -transition-duration: 0.5s;
+    margin: 0;
+}
+
+/* end tempatnya background */
+
+
+/* for majalah */
+#book-container {
+    -webkit-box-sizing: border-box;
+    /* Safari/Chrome, other WebKit */
+
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
+
+    box-sizing: border-box;
+    /* Opera/IE 8+ */
+
+    max-width: 85%;
+    margin: auto;
+}
+
+#katalog {
+    /* position: absolute;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;*/
+    z-index: 10;
+}
+
+.page-mobile {
+    display: none;
+}
+
+#navigation-mobile {
+    display: none;
+}
+
+@media screen and (max-width: 568px),
+screen and (max-height: 380px) {
+    html {
+        -webkit-text-size-adjust: none;
+        -o-text-size-adjust: none;
+        -moz-text-size-adjust: none;
+        text-size-adjust: none;
+    }
+}
+
+/* 
+@media screen and (max-height: 500px) {
+    #navigation {
+        display: none;
+    }
+
+    #navigation-mobile {
+        display: unset;
+    }
+} */
+
+/* end for majalah */
+
+/* wowbook engine, paling */
+.wowbook {
+    color: #333;
+}
+
+.wowbook-page-content {
+    background: white;
+}
+
+.wowbook-left .wowbook-gutter-shadow {
+    background-image: url(../css/page_left_background.png);
+    width: 60px;
+    height: 100%;
+    right: -1px;
+}
+
+.wowbook-right .wowbook-gutter-shadow {
+    background-image: url(../css/page_right_background.png);
+    background-position: 0 0;
+    width: 60px;
+    height: 100%;
+    left: -1px;
+}
+
+.wowbook-page-content {
+    padding: 1em;
+}
+
+.wowbook-page {
+    margin: auto;
+}
+
+.wowbook-page .subtitle {
+    font-family: 'BebasNeueRegular', sans-serif;
+    font-size: 18px;
+    color: blue;
+    line-height: 1.5;
+    padding: 5px 5px 0px;
+    font-style: italic;
+}
+
+.wowbook-page p,
+.wowbook-page ul {}
+
+.wowbook-page li {
+    /*list-style: none;*/
+}
+
+.wowbook-page .feature.pagefx p {
+    font-size: 22px;
+}
+
+.wowbook-page .feature.pagefx .subtitle {
+    margin-top: 0;
+    font-size: 18px;
+}
+
+.easy {
+    background: #ffffff url("easy.png") no-repeat left top;
+    background-size: 200% 100%;
+    zoom: 1;
+    font-size: 1.5em;
+    font-family: lato;
+}
+
+.easy h1,
+.easy p,
+.easy .subtitle {
+    display: none;
+}
+
+.wowbook-right .easy {
+    background-position: right top;
+}
+
+.design {
+    background: #ffffff url("design.png") no-repeat;
+    background-size: 200% 100%;
+}
+
+.design h1 {
+    background: none;
+    text-indent: -10000px;
+    color: #88bfbf;
+    text-shadow: 1px 1px 0px #447f7f;
+    font-size: 144px;
+    line-height: 0.8;
+    bborder-bottom: 2px solid #88bfbf;
+}
+
+.design .subtitle {
+    font-family: 'News Cycle', sans-serif;
+    font-style: normal;
+    font-size: 30px;
+    color: #333;
+    position: absolute;
+    top: 27%;
+}
+
+.wowbook-right .design {
+    background-position: right top;
+}
+
+.wowbook-right .design p {
+    text-align: right;
+    position: absolute;
+    bottom: 1.5em;
+    font-size: 30px;
+    padding-right: 1em;
+}
+
+#thumbs_holder .wowbook-thumbnails {
+    background: none repeat scroll 0 0 #222;
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.8);
+    border-top: 1px solid white;
+    border-top-color: rgba(255, 255, 255, 0.5);
+    border-bottom: 1px solid blue;
+    border-bottom-color: rgba(64, 64, 64, 0.5);
+    box-shadow: 0 0 20px #aa2b2b;
+    padding: 10px 0;
+    position: relative;
+}
+
+#thumbs_holder .wowbook-button {
+    background-color: #AA2B2B;
+}
+
+.wowbook-thumbnails {
+    background: none repeat scroll 0 0 #888;
+    background: none repeat scroll 0 0 rgba(128, 128, 128, 0.48);
+    border-top: 1px solid white;
+    border-top-color: rgba(255, 255, 255, 0.5);
+    border-bottom: 1px solid blue;
+    border-bottom-color: rgba(64, 64, 64, 0.5);
+    box-shadow: 0 0 15px rgba(128, 128, 128, 0.48);
+}
+
+.wowbook-horizontal.wowbook-thumbnails {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.wowbook-vertical .wowbook-thumbnail {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#thumbs_type,
+#thumbs_position,
+#thumbs_size {
+    text-align: center;
+}
+
+#thumbs_position button {
+    width: 49%;
+}
+
+#zoom-feature {
+    background: #ffffff url("zoom.jpg") no-repeat;
+    background-size: 200% 100%;
+}
+
+#zoom-feature h1 {
+    font-size: 100px;
+    color: #333;
+    background: none;
+    line-height: 1.1;
+    padding: 5px 0px 0px;
+    text-align: right;
+}
+
+#zoom-feature2 {
+    background-color: white;
+    background-image: url("zoom.jpg");
+    background-size: 200% 100%;
+    background-position: right top;
+    background-repeat: no-repeat;
+}
+
+.deeplinking {
+    color: white;
+    background: url("chain.jpg") no-repeat;
+    background-size: 200% 100%;
+}
+
+.deeplinking h1 {
+    color: white;
+    background: #3d567d !important;
+}
+
+.deeplinking a,
+.deeplinking a:active,
+.deeplinking a:visited {
+    color: #f8f8f8;
+    text-decoration: underline;
+}
+
+.wowbook-right .deeplinking {
+    background-position: top right;
+}
+
+.wowbook-page .feature.numbering {
+    background: url("numbering.png") #ffffff no-repeat;
+    background-size: 100% 100%;
+}
+
+.wowbook-page .feature.numbering h1 {
+    color: #AA2B2B;
+    background: none;
+    font-size: 40px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.wowbook-page .feature.numbering p {
+    font-size: 23px;
+}
+
+.wowbook-page .feature.numbering .wowbook-page-number {
+    text-indent: 100%;
+    overflow: hidden;
+}
+
+.wowbook-page .feature.slideshow h1 {
+    color: #AA2B2B;
+    background: none;
+    font-size: 40px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.wowbook-page .feature.slideshow a {
+    display: block;
+    text-align: center;
+}
+
+.wowbook-page .feature.flash {
+    background: url("flash.png") #ffffff no-repeat;
+    background-size: 200% 100%;
+    padding-top: 42%;
+    /* 170px/400px */
+
+}
+
+.wowbook-page .feature.flash p {
+    font-size: 20px;
+    padding: 0.7em;
+}
+
+.wowbook-page .feature.flash h1 {
+    display: none;
+}
+
+.wowbook-right .more {
+    background-position: top right;
+}
+
+/* hilangkan */
+.displaynone {
+    display: none;
+}
+
+/* end hilangkan */
+
+/* buat scroll vertikal */
+.scroll-y {
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+/* end scroll */
+
+/*ini bagian halaman, tinggal ganti url*/
+#p1 {
+    background-image: url('../images/CATALOG RBP1.jpg');
+    background-size: 100% 100%;
+}
+
+#p2 {
+    background-image: url('../images/CATALOG RBP2.jpg');
+    background-size: 100% 100%;
+}
+
+#p3 {
+    background-image: url('../images/CATALOG RBP3.jpg');
+    background-size: 100% 100%;
+}
+
+#p4 {
+    background-image: url('../images/CATALOG RBP4.jpg');
+    background-size: 100% 100%;
+}
+
+#p5 {
+    background-image: url('../images/CATALOG RBP5.jpg');
+    background-size: 100% 100%;
+}
+
+#p6 {
+    background-image: url('../images/CATALOG RBP6.jpg');
+    background-size: 100% 100%;
+}
+
+#p7 {
+    background-image: url('../images/CATALOG RBP7.jpg');
+    background-size: 100% 100%;
+}
+
+#p8 {
+    background-image: url('../images/CATALOG RBP8.jpg');
+    background-size: 100% 100%;
+}
+
+#p9 {
+    background-image: url('../images/CATALOG RBP9.jpg');
+    background-size: 100% 100%;
+}
+
+#p10 {
+    background-image: url('../images/CATALOG RBP10.jpg');
+    background-size: 100% 100%;
+}
+
+#p11 {
+    background-image: url('../images/CATALOG RBP11.jpg');
+    background-size: 100% 100%;
+}
+
+#p12 {
+    background-image: url('../images/CATALOG RBP12.jpg');
+    background-size: 100% 100%;
+}
+
+#p13 {
+    background-image: url('../images/CATALOG RBP13.jpg');
+    background-size: 100% 100%;
+}
+
+#p14 {
+    background-image: url('../images/CATALOG RBP14.jpg');
+    background-size: 100% 100%;
+}
+
+#p15 {
+    background-image: url('../images/CATALOG RBP15.jpg');
+    background-size: 100% 100%;
+}
+
+#p16 {
+    background-image: url('../images/CATALOG RBP16.jpg');
+    background-size: 100% 100%;
+}
+
+#p17 {
+    background-image: url('../images/CATALOG RBP17.jpg');
+    background-size: 100% 100%;
+}
+
+#p18 {
+    background-image: url('../images/CATALOG RBP18.jpg');
+    background-size: 100% 100%;
+}
+
+#p19 {
+    background-image: url('../images/CATALOG RBP19.jpg');
+    background-size: 100% 100%;
+}
+
+#p20 {
+    background-image: url('../images/CATALOG RBP20.jpg');
+    background-size: 100% 100%;
+}
+
+#p21 {
+    background-image: url('../images/CATALOG RBP21.jpg');
+    background-size: 100% 100%;
+}
+
+#p22 {
+    background-image: url('../images/CATALOG RBP22.jpg');
+    background-size: 100% 100%;
+}
+
+#p23 {
+    background-image: url('../images/CATALOG RBP23.jpg');
+    background-size: 100% 100%;
+}
+
+#p24 {
+    background-image: url('../images/CATALOG RBP24.jpg');
+    background-size: 100% 100%;
+}
+
+#p25 {
+    background-image: url('../images/CATALOG RBP25.jpg');
+    background-size: 100% 100%;
+}
+
+#p26 {
+    background-image: url('../images/CATALOG RBP26.jpg');
+    background-size: 100% 100%;
+}
+
+#p27 {
+    background-image: url('../images/CATALOG RBP27.jpg');
+    background-size: 100% 100%;
+}
+
+#p28 {
+    background-image: url('../images/CATALOG RBP28.jpg');
+    background-size: 100% 100%;
+}
+
+#p29 {
+    background-image: url('../images/CATALOG RBP29.jpg');
+    background-size: 100% 100%;
+}
+
+#p30 {
+    background-image: url('../images/CATALOG RBP30.jpg');
+    background-size: 100% 100%;
+}
+
+#p31 {
+    background-image: url('../images/CATALOG RBP31.jpg');
+    background-size: 100% 100%;
+}
+
+#p32 {
+    background-image: url('../images/CATALOG RBP32.jpg');
+    background-size: 100% 100%;
+}
+
+#p33 {
+    background-image: url('../images/CATALOG RBP33.jpg');
+    background-size: 100% 100%;
+}
+
+#p34 {
+    background-image: url('../images/CATALOG RBP34.jpg');
+    background-size: 100% 100%;
+}
+
+#p35 {
+    background-image: url('../images/CATALOG RBP35.jpg');
+    background-size: 100% 100%;
+}
+
+#p36 {
+    background-image: url('../images/CATALOG RBP36.jpg');
+    background-size: 100% 100%;
+}
+
+#p37 {
+    background-image: url('../images/CATALOG RBP37.jpg');
+    background-size: 100% 100%;
+}
+
+#p38 {
+    background-image: url('../images/CATALOG RBP38.jpg');
+    background-size: 100% 100%;
+}
+
+#p39 {
+    background-image: url('../images/CATALOG RBP39.jpg');
+    background-size: 100% 100%;
+}
+
+#p40 {
+    background-image: url('../images/CATALOG RBP40.jpg');
+    background-size: 100% 100%;
+}
+
+#p41 {
+    background-image: url('../images/CATALOG RBP41.jpg');
+    background-size: 100% 100%;
+}
+
+#p42 {
+    background-image: url('../images/CATALOG RBP42.jpg');
+    background-size: 100% 100%;
+}
+
+#p43 {
+    background-image: url('../images/CATALOG RBP43.jpg');
+    background-size: 100% 100%;
+}
+
+#p44 {
+    background-image: url('../images/CATALOG RBP44.jpg');
+    background-size: 100% 100%;
+}
+
+#p45 {
+    background-image: url('../images/CATALOG RBP45.jpg');
+    background-size: 100% 100%;
+}
+
+#p46 {
+    background-image: url('../images/CATALOG RBP46.jpg');
+    background-size: 100% 100%;
+}
+
+#p47 {
+    background-image: url('../images/CATALOG RBP47.jpg');
+    background-size: 100% 100%;
+}
+
+#p48 {
+    background-image: url('../images/CATALOG RBP48.jpg');
+    background-size: 100% 100%;
+}
+
+#p49 {
+    background-image: url('../images/CATALOG RBP49.jpg');
+    background-size: 100% 100%;
+}
+
+#p50 {
+    background-image: url('../images/CATALOG RBP50.jpg');
+    background-size: 100% 100%;
+}
+
+#p51 {
+    background-image: url('../images/CATALOG RBP51.jpg');
+    background-size: 100% 100%;
+}
+
+#p52 {
+    background-image: url('../images/CATALOG RBP52.jpg');
+    background-size: 100% 100%;
+}
+
+#p53 {
+    background-image: url('../images/CATALOG RBP53.jpg');
+    background-size: 100% 100%;
+}
+
+#p54 {
+    background-image: url('../images/CATALOG RBP54.jpg');
+    background-size: 100% 100%;
+}
+
+#p55 {
+    background-image: url('../images/CATALOG RBP55.jpg');
+    background-size: 100% 100%;
+}
+
+#p56 {
+    background-image: url('../images/CATALOG RBP56.jpg');
+    background-size: 100% 100%;
+}
+
+#p57 {
+    background-image: url('../images/CATALOG RBP57.jpg');
+    background-size: 100% 100%;
+}
+
+#p58 {
+    background-image: url('../images/CATALOG RBP58.jpg');
+    background-size: 100% 100%;
+}
+
+#p59 {
+    background-image: url('../images/CATALOG RBP59.jpg');
+    background-size: 100% 100%;
+}
+
+#p60 {
+    background-image: url('../images/CATALOG RBP60.jpg');
+    background-size: 100% 100%;
+}
+
+#p61 {
+    background-image: url('../images/CATALOG RBP61.jpg');
+    background-size: 100% 100%;
+}
+
+#p62 {
+    background-image: url('../images/CATALOG RBP62.jpg');
+    background-size: 100% 100%;
+}
+
+#p63 {
+    background-image: url('../images/CATALOG RBP63.jpg');
+    background-size: 100% 100%;
+}
+
+#p64 {
+    background-image: url('../images/CATALOG RBP64.jpg');
+    background-size: 100% 100%;
+}
+
+#p65 {
+    background-image: url('../images/CATALOG RBP65.jpg');
+    background-size: 100% 100%;
+}
+
+#p66 {
+    background-image: url('../images/CATALOG RBP66.jpg');
+    background-size: 100% 100%;
+}
+
+#p67 {
+    background-image: url('../images/CATALOG RBP67.jpg');
+    background-size: 100% 100%;
+}
+
+#p68 {
+    background-image: url('../images/CATALOG RBP68.jpg');
+    background-size: 100% 100%;
+}
+
+#p69 {
+    background-image: url('../images/CATALOG RBP69.jpg');
+    background-size: 100% 100%;
+}
+
+#p70 {
+    background-image: url('../images/CATALOG RBP70.jpg');
+    background-size: 100% 100%;
+}
+
+#p71 {
+    background-image: url('../images/CATALOG RBP71.jpg');
+    background-size: 100% 100%;
+}
+
+#p72 {
+    background-image: url('../images/CATALOG RBP72.jpg');
+    background-size: 100% 100%;
+}
+
+#p73 {
+    background-image: url('../images/CATALOG RBP73.jpg');
+    background-size: 100% 100%;
+}
+
+#p74 {
+    background-image: url('../images/CATALOG RBP74.jpg');
+    background-size: 100% 100%;
+}
+
+#p75 {
+    background-image: url('../images/CATALOG RBP75.jpg');
+    background-size: 100% 100%;
+}
+
+#p76 {
+    background-image: url('../images/CATALOG RBP76.jpg');
+    background-size: 100% 100%;
+}
+
+#p77 {
+    background-image: url('../images/CATALOG RBP77.jpg');
+    background-size: 100% 100%;
+}
+
+#p78 {
+    background-image: url('../images/CATALOG RBP78.jpg');
+    background-size: 100% 100%;
+}
+
+#p79 {
+    background-image: url('../images/CATALOG RBP79.jpg');
+    background-size: 100% 100%;
+}
+
+#p80 {
+    background-image: url('../images/CATALOG RBP80.jpg');
+    background-size: 100% 100%;
+}
+
+#p81 {
+    background-image: url('../images/CATALOG RBP81.jpg');
+    background-size: 100% 100%;
+}
+
+#p82 {
+    background-image: url('../images/CATALOG RBP82.jpg');
+    background-size: 100% 100%;
+}
+
+#p83 {
+    background-image: url('../images/CATALOG RBP83.jpg');
+    background-size: 100% 100%;
+}
+
+#p84 {
+    background-image: url('../images/CATALOG RBP84.jpg');
+    background-size: 100% 100%;
+}
+
+#p85 {
+    background-image: url('../images/CATALOG RBP85.jpg');
+    background-size: 100% 100%;
+}
+
+#p86 {
+    background-image: url('../images/CATALOG RBP86.jpg');
+    background-size: 100% 100%;
+}
+
+#p87 {
+    background-image: url('../images/CATALOG RBP87.jpg');
+    background-size: 100% 100%;
+}
+
+#p88 {
+    background-image: url('../images/CATALOG RBP88.jpg');
+    background-size: 100% 100%;
+}
+
+#p89 {
+    background-image: url('../images/CATALOG RBP89.jpg');
+    background-size: 100% 100%;
+}
+
+#p90 {
+    background-image: url('../images/CATALOG RBP90.jpg');
+    background-size: 100% 100%;
+}
+
+#p91 {
+    background-image: url('../images/CATALOG RBP91.jpg');
+    background-size: 100% 100%;
+}
+
+#p92 {
+    background-image: url('../images/CATALOG RBP92.jpg');
+    background-size: 100% 100%;
+}
+
+#p93 {
+    background-image: url('../images/CATALOG RBP93.jpg');
+    background-size: 100% 100%;
+}
+
+#p94 {
+    background-image: url('../images/CATALOG RBP94.jpg');
+    background-size: 100% 100%;
+}
+
+#p95 {
+    background-image: url('../images/CATALOG RBP95.jpg');
+    background-size: 100% 100%;
+}
+
+#p96 {
+    background-image: url('../images/CATALOG RBP96.jpg');
+    background-size: 100% 100%;
+}
+
+#p97 {
+    background-image: url('../images/CATALOG RBP97.jpg');
+    background-size: 100% 100%;
+}
+
+#p98 {
+    background-image: url('../images/CATALOG RBP98.jpg');
+    background-size: 100% 100%;
+}
+
+/* end halaman */
+
+
+/* bottom navigasi */
+#bottom-nav {
+    position: absolute;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+    margin: auto;
+    padding: auto;
+    width: 70%;
+    z-index: 13;
+    user-select: none;
+}
+
+.li-icon {
+    display: inline-table;
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/* end bottom navigasi */
+
+/* navigasi pengganti ketika layar kecil */
+#res-nav {
+    position: fixed;
+    bottom: 0;
+    left: 10px;
+    z-index: 13;
+    display: none;
+}
+
+.li-icon-res {
+    list-style-type: none;
+    margin-bottom: 20px;
+    background-color: black;
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.li-icon-res-menu {
+    list-style-type: none;
+    margin-bottom: 20px;
+    background-color: #e51c23;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.navicon-res {
+    color: white;
+}
+
+.navicon-res-menu {
+    color: white;
+}
+
+/* end */
+
+/* variasi warna navigasi */
+.nav-light {
+    background-color: #1b1c1d !important;
+
+}
+
+.nav-dark {
+    background-color: white !important;
+}
+
+.navicon {
+    cursor: pointer;
+}
+
+.navicon-light {
+    color: white;
+    cursor: pointer;
+}
+
+.navicon-dark {
+    color: black;
+    cursor: pointer;
+}
+
+.navicon:hover {
+    color: rgb(39, 95, 31);
+    animation-name: pulse;
+}
+
+/* end */
+
+/* top navigasi */
+#top-nav {
+    position: absolute;
+    right: 0px;
+    left: 0px;
+    top: 0px;
+    margin: auto;
+    width: 100%;
+    height: 40px;
+    z-index: 13;
+}
+
+/* end top navigasi */
+
+
+/* scroll untuk modal pencarian */
+.scroll {
+    overflow-y: scroll;
+    height: 400px;
+}
+
+/* end */
+
+
+/* side navigation/ navigasi samping */
+#mySidenav {
+    height: 100%;
+    width: 300px;
+    position: fixed;
+    z-index: 15;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    transform: translateX(-100%);
+}
+
+#mySidenavright {
+    height: 100%;
+    width: 300px;
+    position: fixed;
+    z-index: 15;
+    top: 0;
+    right: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    transform: translateX(100%);
+}
+
+.sidenav-light {
+    background-color: #1b1c1d;
+    color: white;
+}
+
+#tt {
+    font-family: 'Myri';
+    font-size: 25px;
+}
+
+.sidenav-dark {
+    background-color: white;
+    color: black;
+}
+
+/* end sidenav */
+
+/* opacity ketika sidenav muncul */
+#over {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 14;
+    display: none;
+}
+
+/* end */
+
+/* buat ngatur warna */
+.color-box {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: inline-table;
+    border: 1px solid white;
+}
+
+.black {
+    background-color: #1b1c1d;
+    color: white;
+}
+
+.grey {
+    background-color: #7b8990;
+    color: white;
+}
+
+.blue {
+    background-color: #2196F3;
+    color: white;
+}
+
+.green {
+    background: #4CAF50;
+    color: white;
+}
+
+.red {
+    background-color: #e51c23;
+    color: white;
+}
+
+.brown {
+    background-color: #795548;
+    color: white;
+}
+
+.yellow {
+    background-color: #ffeb3b;
+    color: black;
+}
+
+.orange {
+    background-color: #ff9800;
+    color: white;
+}
+
+/* end buat pilih warna */
+
+/* div kotak buat ganti background */
+.backg {
+    cursor: pointer;
+    display: inline-table;
+}
+
+/* end */
+
+
+/* ketika layar kecil */
+@media screen and (max-width : 1267px) {
+    .li-icon {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+}
+
+@media screen and (max-width : 1053px) {
+    .li-icon {
+        margin-left: 3px;
+        margin-right: 3px;
+    }
+}
+
+@media screen and (max-width : 967px) {
+    .li-icon {
+        margin-left: 1px;
+        margin-right: 1px;
+    }
+}
+
+@media screen and (max-width : 882px) {
+    .li-icon {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+}
+
+@media screen and (max-width : 839px) {
+    .li-icon {
+        margin-left: -2px;
+        margin-right: -2px;
+    }
+}
+
+@media screen and (max-width : 753px) {
+    .li-icon {
+        margin-left: -5px;
+        margin-right: -5px;
+    }
+}
+
+@media screen and (max-width : 625px) {
+    /* #bottom-nav{
+    display: none;
+  }
+  #res-nav{
+    display: block;
+  } */
+}
+
+/* end */
+
+/* tombol dubbing */
+.play {
+    width: 60px;
+    padding: 10px;
+    position: absolute;
+    right: 0px;
+    left: 0px;
+    top: 45%;
+    margin: auto;
+    background-color: black;
+    color: white;
+    z-index: 2;
+    border-radius: 10px;
+    opacity: 0.2;
+    cursor: pointer;
+}
+
+.play-slide {
+    width: 60px;
+    padding: 10px;
+    position: absolute;
+    right: 0px;
+    left: -195px;
+    top: 45%;
+    margin: auto;
+    background-color: black;
+    color: white;
+    z-index: 2;
+    border-radius: 10px;
+    opacity: 0.2;
+    cursor: pointer;
+}
+
+.play-slide-right {
+    width: 60px;
+    padding: 10px;
+    position: absolute;
+    right: 0px;
+    left: 195px;
+    top: 34%;
+    margin: auto;
+    background-color: black;
+    color: white;
+    z-index: 2;
+    border-radius: 10px;
+    opacity: 0.2;
+    cursor: pointer;
+}
+
+.play:hover {
+    opacity: 1;
+}
+
+.play-slide:hover {
+    opacity: 1;
+}
+
+.play-slide-right:hover {
+    opacity: 1;
+}
+
+/* end */
+
+.box {
+    cursor: pointer;
+    padding: 10px;
+}
+
+.gr {
+    background-color: #3b3b3b;
+}
+
+.ui.huge.below.pointing.label.ww {
+    position: absolute;
+    top: 13%;
+    left: 23%;
+    background-color: #1b1c1d;
+    color: white;
+}
+
+.ui.huge.below.pointing.label.sld {
+    position: absolute;
+    top: 9%;
+    left: 11%;
+    background-color: #1b1c1d;
+    color: white;
+}
+
+.wowbook-zoomwindow {
+    z-index: 99;
+}
