@@ -11,7 +11,27 @@
                 <div class="post-details">
                     <div class="post-content pt-2">
                         <h2 class="title mb-3"><a href="#">Selamat Datang, {{ Auth::user()->name }}</a></h2>
-                    </div>
+                        <div class="row">
+                            <div class="col-md-6 col-xl-3">
+                                <div class="card stat-widget">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Total Produk Ready</h5>
+                                        <h2>32</h2>
+                                        <p>TOTAL</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xl-3">
+                                <div class="card stat-widget">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Total Produk Sold</h5>
+                                        <h2>23</h2>
+                                        <p>TOTAL</p>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                    </div> 
                 </div>
             </div>
         </div>
