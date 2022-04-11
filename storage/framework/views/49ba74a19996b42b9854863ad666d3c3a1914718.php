@@ -16,8 +16,8 @@ $format_number = '628' . $format_number[1];
     <meta property="og:title" content="<?php echo $__env->yieldContent('title'); ?> - <?php echo e($setting->name); ?>">
     <meta name="twitter:title" content="<?php echo $__env->yieldContent('title'); ?> - <?php echo e($setting->name); ?>">
     <meta property="og:url" content="<?php echo e(Request::url()); ?>">
-
-
+    
+    
     <?php echo $__env->yieldContent('meta'); ?>
     <title><?php echo $__env->yieldContent('title'); ?> - <?php echo e($setting->name); ?></title>
     <link rel="shortcut icon" href="<?php echo e(asset('favicon.ico')); ?>" type="image/png">
@@ -27,6 +27,7 @@ $format_number = '628' . $format_number[1];
     <link rel="stylesheet" href="<?php echo e(asset('css/owl.theme.default.min.css')); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/styles.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('css/mfb.min.css')); ?>">
+    
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <?php echo $__env->yieldContent('css'); ?>
     <script>
@@ -396,6 +397,7 @@ $format_number = '628' . $format_number[1];
     <script src="<?php echo e(asset('js/main.js')); ?>"></script>
     <script src="<?php echo e(asset('js/mfb.min.js')); ?>"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    
     <script src="<?php echo e(asset('js/typeahead.js')); ?>"></script>
     </script>
     <script>

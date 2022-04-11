@@ -16,8 +16,8 @@ $format_number = '628' . $format_number[1];
     <meta property="og:title" content="@yield('title') - {{ $setting->name }}">
     <meta name="twitter:title" content="@yield('title') - {{ $setting->name }}">
     <meta property="og:url" content="{{ Request::url() }}">
-
-
+    
+    
     @yield('meta')
     <title>@yield('title') - {{ $setting->name }}</title>
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/png">
@@ -27,6 +27,7 @@ $format_number = '628' . $format_number[1];
     <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/styles.css') }}">
     <link rel="stylesheet" href="{{ asset('css/mfb.min.css') }}">
+    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> --}}
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     @yield('css')
     <script>
@@ -493,6 +494,7 @@ $format_number = '628' . $format_number[1];
     <script src="{{ asset('js/main.js') }}"></script>
     <script src="{{ asset('js/mfb.min.js') }}"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> --}}
     <script src="{{ asset('js/typeahead.js') }}"></script>
     </script>
     <script>
