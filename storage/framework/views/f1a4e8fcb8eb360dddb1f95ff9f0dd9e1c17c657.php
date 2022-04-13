@@ -1,10 +1,8 @@
-@extends('layout.admin')
-{{-- @dd($types) --}}
-@section('title', 'Admin Dashboard')
+<?php $__env->startSection('title', 'Admin Dashboard'); ?>
 
-@section('page', 'Data Master > Produk > Tambah')
+<?php $__env->startSection('page', 'Data Master > Produk > Tambah'); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
     <div class="col-lg-12 col-12 layout-spacing">
         <h3 calss="mb-2">Tambah Produk</h3>
         <div class="statbox widget box box-shadow">
@@ -15,17 +13,17 @@
                 </div>
             </div>
             <div class="widget-content widget-content-area">
-                <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
+                <form action="<?php echo e(route('product.store')); ?>" method="POST" enctype="multipart/form-data">
+                    <?php echo csrf_field(); ?>
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group mb-4">
                                 <label for="user_id">Brand</label>
                                 <select name="user_id" id="user_id" class="form-control select2" required>
                                     <option value="">Pilih Brand</option>
-                                    @foreach ($users as $user)
-                                        <option value="{{ $user->id }}">{{ $user->name }}</option>
-                                    @endforeach
+                                    <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($user->id); ?>"><?php echo e($user->name); ?></option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
                             </div>
                         </div>
@@ -36,9 +34,9 @@
                                 <select name="kondisi_id" id="kondisi_id" class="form-control select2" required
                                     onchange="getCategory()">
                                     <option value="">Pilih Jenis</option>
-                                    @foreach ($types as $type)
-                                        <option value="{{ $type->id }}">{{ $type->name }}</option>
-                                    @endforeach
+                                    <?php $__currentLoopData = $types; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $type): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($type->id); ?>"><?php echo e($type->name); ?></option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
                             </div>
                         </div>
@@ -48,9 +46,9 @@
                                 <label for="user_id">Pilih Kondisi</label>
                                 <select name="user_id" id="user_id" class="form-control select2" required>
                                     <option value="">Pilih Brand</option>
-                                    @foreach ($users as $user)
-                                        <option value="{{ $user->id }}">{{ $user->name }}</option>
-                                    @endforeach
+                                    <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($user->id); ?>"><?php echo e($user->name); ?></option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
                             </div>
                         </div>
@@ -66,9 +64,7 @@
                                                     <option value="">Pilih Kategori</option>
                                                     <option value="1">Atas</option>
                                                     <option value="2">Bawah</option>
-                                                    {{-- @foreach ($categories as $type)
-                                                        <option value="{{ $type->id }}">{{ $type->name }}</option>
-                                                    @endforeach --}}
+                                                    
                                                 </select>
                                             </div>
                                         </th>
@@ -77,17 +73,10 @@
                                                 <label for="code">Subkategori</label>
                                                 <input type="text" id="code" name="code" class="form-control select2"
                                                     disabled>
-                                                {{-- <select id="subcategory_id" class="form-control select2">
-                                                    <option value="">Pilih Subkategori</option>
-                                                </select> --}}
+                                                
                                             </div>
                                         </th>
-                                        {{-- <th>
-                                            <div class="form-group mb-5">
-                                                <button type="button" class="btn btn-primary"
-                                                    onclick="addProductDetail()">+</button>
-                                            </div>
-                                        </th> --}}
+                                        
                                     </tr>
                                 </thead>
                                 <tbody id="data-detail">
@@ -134,9 +123,9 @@
                             <div class="form-group mb-4">
                                 <label for="disc">Tag</label>
                                 <select name="tags[]" id="tags" class="form-control select2-tags" multiple>
-                                    @foreach ($tags as $tag)
-                                        <option value="{{ $tag }}">{{ $tag }}</option>
-                                    @endforeach
+                                    <?php $__currentLoopData = $tags; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tag): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($tag); ?>"><?php echo e($tag); ?></option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
                             </div>
                         </div>
@@ -165,7 +154,7 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-10">
-                            <a class="btn btn-danger mt-3" href="{{ route('product.index') }}"><i
+                            <a class="btn btn-danger mt-3" href="<?php echo e(route('product.index')); ?>"><i
                                     class="flaticon-cancel-12"></i> Back</a>
                             <button type="submit" class="btn btn-primary mt-3">Simpan</button>
                         </div>
@@ -174,10 +163,10 @@
             </div>
         </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('script')
-    <script src="{{ asset('js/product.js') }}"></script>
+<?php $__env->startSection('script'); ?>
+    <script src="<?php echo e(asset('js/product.js')); ?>"></script>
     <script type="text/javascript">
         var loadFile = function(event, no) {
             var output = document.getElementById('preview');
@@ -195,4 +184,6 @@
             tabDisable: true
         });
     </script>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layout.admin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\Laravel\rumah-ebes\resources\views/product/create.blade.php ENDPATH**/ ?>

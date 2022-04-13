@@ -32,6 +32,7 @@ class ProductController extends Controller
         $data['page'] = 'list product';
         $data['types'] = Type::all();
         $data['users'] = User::all();
+        $data['categories'] = Category::all();
         $data_tags = [];
         $tags = Product::where('tags', '!=', null)->pluck('tags');
         foreach ($tags as $tag) {
@@ -262,8 +263,15 @@ class ProductController extends Controller
 
     public function subcategory($id)
     {
-        $subcategory = Subcategory::where('category_id', $id)->get();
+        // dd($id);
+        // $subcategory = Subcategory::where('category_id', $id)->get();
+        if ($id == 1) {
+            $code = 'a' . time().rand(1,100);
+        } else {
+            $code = 'b' . time().rand(1,100);
+        }
+        
 
-        return response()->json($subcategory);
+        return response()->json($code);
     }
 }
