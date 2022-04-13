@@ -16,8 +16,6 @@ $format_number = '628' . $format_number[1];
     <meta property="og:title" content="@yield('title') - {{ $setting->name }}">
     <meta name="twitter:title" content="@yield('title') - {{ $setting->name }}">
     <meta property="og:url" content="{{ Request::url() }}">
-    
-    
     @yield('meta')
     <title>@yield('title') - {{ $setting->name }}</title>
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/png">
@@ -27,8 +25,10 @@ $format_number = '628' . $format_number[1];
     <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/styles.css') }}">
     <link rel="stylesheet" href="{{ asset('css/mfb.min.css') }}">
-    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> --}}
+    
+    {{-- <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}"> --}}
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    
     @yield('css')
     <script>
         const base_url = "{{ url('') }}";
@@ -67,8 +67,7 @@ $format_number = '628' . $format_number[1];
     </ul> --}}
     <ul id="menu" class="mfb-component--br mfb-zoomin hidden-md hidden-lg" data-mfb-toggle="click">
         <li class="mfb-component__wrap">
-            <a href="#" onclick="return false" data-mfb-label="Beli Produk"
-                class="mfb-component__button--main btn-cart">
+            <a href="#" onclick="return false" data-mfb-label="Beli Produk" class="mfb-component__button--main btn-cart">
                 <img src="{{ asset('img/shopping-cart.svg') }}" alt="Rumah Batik Probolinggo" srcset="" />
             </a>
             <ul class="mfb-component__list">
@@ -250,7 +249,8 @@ $format_number = '628' . $format_number[1];
 
                 </div>
                 <div class="container-fluid">
-                    <div class="row flex align-items-center justify-content-between mg-top-30 list_menu" style="background: #1f5195">
+                    <div class="row flex align-items-center justify-content-between mg-top-30 list_menu"
+                        style="background: #1f5195">
                         <div class="col-md-4 col-xs-4 col-sm-4 col2 hidden-lg hidden-md">
                             <div class="topbar-right">
                                 <div class="element">
@@ -432,14 +432,14 @@ $format_number = '628' . $format_number[1];
         <!-- /header -->
         <!-- content -->
         @yield('content')
-
+        
         <!-- Footer -->
         <footer class="v1 bd-top">
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-f">
                         <div class="row">
-                                {{-- <div class="col-md-4 col-xs-6 col-f">
+                            {{-- <div class="col-md-4 col-xs-6 col-f">
                                     <h4>Tentang Kami</h4>
                                     <ul>
 
@@ -447,7 +447,7 @@ $format_number = '628' . $format_number[1];
                                         <li><a href="/pengrajin">Profil pengrajin</a></li>
                                     </ul>
                                 </div> --}}
-                                {{-- <div class="col-md-4 col-xs-6 col-f">
+                            {{-- <div class="col-md-4 col-xs-6 col-f">
                                     <h4>Kontak</h4>
                                     <ul>
                                         <li><a onclick="return false" href="#" class="narahubung" data-container="body"
@@ -494,7 +494,6 @@ $format_number = '628' . $format_number[1];
     <script src="{{ asset('js/main.js') }}"></script>
     <script src="{{ asset('js/mfb.min.js') }}"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> --}}
     <script src="{{ asset('js/typeahead.js') }}"></script>
     </script>
     <script>
