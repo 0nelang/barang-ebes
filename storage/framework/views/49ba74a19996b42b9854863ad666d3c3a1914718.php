@@ -16,8 +16,6 @@ $format_number = '628' . $format_number[1];
     <meta property="og:title" content="<?php echo $__env->yieldContent('title'); ?> - <?php echo e($setting->name); ?>">
     <meta name="twitter:title" content="<?php echo $__env->yieldContent('title'); ?> - <?php echo e($setting->name); ?>">
     <meta property="og:url" content="<?php echo e(Request::url()); ?>">
-    
-    
     <?php echo $__env->yieldContent('meta'); ?>
     <title><?php echo $__env->yieldContent('title'); ?> - <?php echo e($setting->name); ?></title>
     <link rel="shortcut icon" href="<?php echo e(asset('favicon.ico')); ?>" type="image/png">
@@ -28,7 +26,9 @@ $format_number = '628' . $format_number[1];
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/styles.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('css/mfb.min.css')); ?>">
     
+    
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    
     <?php echo $__env->yieldContent('css'); ?>
     <script>
         const base_url = "<?php echo e(url('')); ?>";
@@ -41,8 +41,7 @@ $format_number = '628' . $format_number[1];
     
     <ul id="menu" class="mfb-component--br mfb-zoomin hidden-md hidden-lg" data-mfb-toggle="click">
         <li class="mfb-component__wrap">
-            <a href="#" onclick="return false" data-mfb-label="Beli Produk"
-                class="mfb-component__button--main btn-cart">
+            <a href="#" onclick="return false" data-mfb-label="Beli Produk" class="mfb-component__button--main btn-cart">
                 <img src="<?php echo e(asset('img/shopping-cart.svg')); ?>" alt="Rumah Batik Probolinggo" srcset="" />
             </a>
             <ul class="mfb-component__list">
@@ -224,7 +223,8 @@ $format_number = '628' . $format_number[1];
 
                 </div>
                 <div class="container-fluid">
-                    <div class="row flex align-items-center justify-content-between mg-top-30 list_menu" style="background: #1f5195">
+                    <div class="row flex align-items-center justify-content-between mg-top-30 list_menu"
+                        style="background: #1f5195">
                         <div class="col-md-4 col-xs-4 col-sm-4 col2 hidden-lg hidden-md">
                             <div class="topbar-right">
                                 <div class="element">
@@ -358,15 +358,15 @@ $format_number = '628' . $format_number[1];
         <!-- /header -->
         <!-- content -->
         <?php echo $__env->yieldContent('content'); ?>
-
+        
         <!-- Footer -->
         <footer class="v1 bd-top">
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-f">
                         <div class="row">
-                                
-                                
+                            
+                            
                             <div class="col-md-4 col-xs-6 col-f">
                                 <h4>Media Sosial</h4>
 
@@ -397,7 +397,6 @@ $format_number = '628' . $format_number[1];
     <script src="<?php echo e(asset('js/main.js')); ?>"></script>
     <script src="<?php echo e(asset('js/mfb.min.js')); ?>"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    
     <script src="<?php echo e(asset('js/typeahead.js')); ?>"></script>
     </script>
     <script>
