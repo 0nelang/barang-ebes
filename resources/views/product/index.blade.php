@@ -38,10 +38,15 @@
                         </thead>
                         <tbody>
                             @forelse($products as $b)
+                            {{-- @dd($b->productImages->isEmpty()) --}}
                                 <tr>
                                     <td class="text-center product-img">
-                                        <span><img src="{{ asset('storage/' . $b->productImages[0]->image) }}"
-                                                width="100px"></span>
+                                        <span><img src="
+                                            @if ($b->productImages->isEmpty())
+                                            @else
+                                            {{ asset('storage/' . $b->productImages[0]->image) }}
+                                            @endif
+                                            "width="100px"></span>
                                     </td>
                                     <td>{{ $b->user->name }}</td>
                                     <td>{{ $b->type->name }}</td>

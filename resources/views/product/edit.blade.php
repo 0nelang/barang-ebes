@@ -5,6 +5,29 @@
 @section('page', 'Data Master > Produk > Edit')
 
 @section('content')
+    <style>
+        .custom-switch.custom-switch-md .custom-control-label {
+            padding-left: 2rem;
+            padding-bottom: 1.5rem;
+        }
+
+        .custom-switch.custom-switch-md .custom-control-label::before {
+            height: 1.5rem;
+            width: calc(2rem + 0.75rem);
+            border-radius: 3rem;
+        }
+
+        .custom-switch.custom-switch-md .custom-control-label::after {
+            width: calc(1.5rem - 4px);
+            height: calc(1.5rem - 4px);
+            border-radius: calc(2rem - (1.5rem / 2));
+        }
+
+        .custom-switch.custom-switch-md .custom-control-input:checked~.custom-control-label::after {
+            transform: translateX(calc(1.5rem - 0.25rem));
+        }
+
+    </style>
     <div class="col-lg-12 col-12 layout-spacing">
         <h3 calss="mb-2">Edit Produk</h3>
         <div class="statbox widget box box-shadow">
@@ -22,11 +45,12 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group mb-4">
-                                <label for="user_id">Pengrajin</label>
+                                <label for="user_id">Brand</label>
                                 <select name="user_id" id="user_id" class="form-control select2" required>
-                                    <option value="">Pilih Pengrajin</option>
+                                    <option value="">Pilih Brand</option>
                                     @foreach ($users as $user)
-                                        <option value="{{ $user->id }}" @if ($user->id == $product->user_id) selected @endif>{{ $user->name }}
+                                        <option value="{{ $user->id }}"
+                                            @if ($user->id == $product->user_id) selected @endif>{{ $user->name }}
                                         </option>
                                     @endforeach
                                 </select>
@@ -34,12 +58,26 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group mb-4">
-                                <label for="type_id">Jenis Usaha</label>
+                                <label for="type_id">Pilih Jenis</label>
                                 <select name="type_id" id="type_id" class="form-control select2" required
                                     onchange="getCategory()">
-                                    <option value="">Pilih Jenis Usaha</option>
+                                    <option value="">Pilih Jenis</option>
                                     @foreach ($types as $type)
-                                        <option value="{{ $type->id }}" @if ($type->id == $product->type_id) selected @endif>{{ $type->name }}
+                                        <option value="{{ $type->id }}"
+                                            @if ($type->id == $product->type_id) selected @endif>{{ $type->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group mb-4">
+                                <label for="kondisi">Pilih Kondisi</label>
+                                <select name="kondisi" id="kondisi" class="form-control select2" required>
+                                    <option value="">Pilih Kondisi</option>
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}"
+                                            @if ($category->id == $product->kondisi) selected @endif>{{ $category->name }}
                                         </option>
                                     @endforeach
                                 </select>
@@ -50,28 +88,35 @@
                                 <thead>
                                     <tr>
                                         <th>
+                                        <th class="col-7    ">
                                             <div class="form-group">
                                                 <label for="category_id">Kategori</label>
-                                                <select id="category_id" class="form-control select2"
-                                                    onchange="getSubcategory()">
+                                                <select id="category_id" class="form-control select2" onchange="getCode()"
+                                                    name="category" disabled>
                                                     <option value="">Pilih Kategori</option>
+                                                    <option value="atas"
+                                                        {{ $product->category == 'atas' ? 'selected' : '' }}>Atas
+                                                    </option>
+                                                    <option value="bawah"
+                                                        {{ $product->category == 'bawah' ? 'selected' : '' }}>Bawah
+                                                    </option>
                                                 </select>
                                             </div>
                                         </th>
-                                        <th>
-                                            <div class="form-group">
-                                                <label for="subcategory_id">Subkategori</label>
-                                                <select id="subcategory_id" class="form-control select2">
-                                                    <option value="">Pilih Subkategori</option>
-                                                </select>
+                                        </th>
+                                        <th class="col">
+                                            <div class="form-group" style="padding-bottom: 1.5rem !important">
+                                                <label for="code">Code</label>
+                                                <input type="text" id="fakecode" name="code" value="{{ $product->code }}"
+                                                    class="form-control select2" disabled>
                                             </div>
                                         </th>
-                                        <th>
+                                        {{-- <th>
                                             <div class="form-group mb-5">
                                                 <button type="button" class="btn btn-primary"
                                                     onclick="addProductDetail()">+</button>
                                             </div>
-                                        </th>
+                                        </th> --}}
                                     </tr>
                                 </thead>
                                 <tbody id="data-detail">
@@ -99,8 +144,8 @@
                         <div class="col-md-4">
                             <div class="form-group mb-4">
                                 <label for="price">Harga</label>
-                                <input type="number" class="form-control" id="price" name="price" placeholder="Harga Produk"
-                                    required="" value="{{ $product->price }}">
+                                <input type="number" class="form-control" id="price" name="price"
+                                    placeholder="Harga Produk" required="" value="{{ $product->price }}">
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -113,15 +158,21 @@
                         <div class="col-md-4">
                             <div class="form-group mb-4">
                                 <label for="price">Harga Jual</label>
-                                <input type="number" class="form-control" id="sell_price" name="sell_price" required=""
+                                <input type="text" class="form-control" id="sell_price" name="sell_price" required=""
                                     readonly value="{{ number_format($product->sell_price) }}">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="custom-control custom-switch custom-switch-md" style="margin-top: 2.5rem !important;">
+                                <input type="checkbox" name="sold" class="custom-control-input" id="customSwitch1">
+                                <label class="custom-control-label" for="customSwitch1">Sold Out</label>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group mb-4">
                                 <label for="exampleFormControlTextarea1">Deskripsi</label>
-                                <textarea class="form-control summernote" id="exampleFormControlTextarea1" rows="3"
-                                    name="description" required="">{{ $product->description }}</textarea>
+                                <textarea class="form-control summernote" id="exampleFormControlTextarea1" rows="3" name="description"
+                                    required="">{{ $product->description }}</textarea>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -129,12 +180,11 @@
                                 <label for="disc">Tag</label>
                                 <select name="tags[]" id="tags" class="form-control select2-tags" multiple>
                                     @foreach ($tags as $tag)
-                                        <option value="{{ $tag }}" @if ($product->tags)
-                                            @if (in_array(strtolower($tag), $product->tags))
-                                                selected
+                                        <option value="{{ $tag }}"
+                                            @if ($product->tags) @if (in_array(strtolower($tag), $product->tags))
+                                                selected @endif
                                             @endif
-                                    @endif
-                                    >{{ $tag }}</option>
+                                            >{{ $tag }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -157,14 +207,13 @@
                             <div class="row">
                                 @forelse ($product_images as $product_image)
                                     <div class="col-md-3" id="image{{ $product_image->id }}">
-                                        <img src="{{ asset('storage/' . $product_image->image) }}" alt="Rumah Batik Probolinggo" srcset=""
-                                            class="w-100">
+                                        <img src="{{ asset('storage/' . $product_image->image) }}"
+                                            alt="Rumah Batik Probolinggo" srcset="" class="w-100">
 
                                         <button type="button" class="btn btn-danger btn-block"
                                             onclick="deleteImage({{ $product_image->id }})">Hapus</button>
                                     </div>
                                 @empty
-
                                 @endforelse
                             </div>
                         </div>
@@ -172,7 +221,7 @@
                             <div class="form-group mb-4 mt-3">
                                 <label for="exampleFormControlFile1">Upload Gambar</label>
                                 <input type="file" class="form-control-file" id="exampleFormControlFile1" name="images[]"
-                                    multiple max="5">
+                                    multiple max="5" accept="image/*">
                             </div>
                         </div>
                     </div>

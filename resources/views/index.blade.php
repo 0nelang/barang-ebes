@@ -54,6 +54,7 @@
                             <h1 class="text-uppercase">{{ $type->name }}</h1>
                         </div>
                     </div>
+                    {{-- @dd($type->homeProducts) --}}
                     @foreach ($type->homeProducts as $product)
                         <div class="col-xs-12 col-md-3 product-item">
                             <div class="product-img">
@@ -105,7 +106,7 @@
                 </div>
             </div>
             <div class="row">
-                @foreach ($articles as $a)
+                {{-- @foreach ($articles as $a)
                     <div class="col-md-4 col-xs-12">
                         <div class="card_article">
                             <img src="{{ asset('storage/' . $a->image) }}" alt="Rumah Batik Probolinggo" />
@@ -123,7 +124,7 @@
                             </div>
                         </div>
                     </div>
-                @endforeach
+                @endforeach --}}
             </div>
         </div>
         <div class="mg-top-30 mg-bottom-30">

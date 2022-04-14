@@ -32,8 +32,8 @@
 
                         <div class="col-md-4">
                             <div class="form-group mb-4">
-                                <label for="kondisi_id">Pilih Jenis</label>
-                                <select name="kondisi_id" id="kondisi_id" class="form-control select2" required
+                                <label for="type_id">Pilih Jenis</label>
+                                <select name="type_id" id="type_id" class="form-control select2" required
                                     onchange="getCategory()">
                                     <option value="">Pilih Jenis</option>
                                     @foreach ($types as $type)
@@ -45,11 +45,11 @@
 
                         <div class="col-md-4">
                             <div class="form-group mb-4">
-                                <label for="user_id">Pilih Kondisi</label>
-                                <select name="user_id" id="user_id" class="form-control select2" required>
-                                    <option value="">Pilih Brand</option>
-                                    @foreach ($users as $user)
-                                        <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                <label for="kondisi">Pilih Kondisi</label>
+                                <select name="kondisi" id="kondisi" class="form-control select2" required>
+                                    <option value="">Pilih Kondisi</option>
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -62,10 +62,10 @@
                                             <div class="form-group">
                                                 <label for="category_id">Kategori</label>
                                                 <select id="category_id" class="form-control select2"
-                                                    onchange="getCode()">
+                                                    onchange="getCode()" name="category">
                                                     <option value="">Pilih Kategori</option>
-                                                    <option value="1">Atas</option>
-                                                    <option value="2">Bawah</option>
+                                                    <option value="atas">Atas</option>
+                                                    <option value="bawah">Bawah</option>
                                                     {{-- @foreach ($categories as $type)
                                                         <option value="{{ $type->id }}">{{ $type->name }}</option>
                                                     @endforeach --}}
@@ -74,9 +74,10 @@
                                         </th>
                                         <th class="col">
                                             <div class="form-group" style="padding-bottom: 1.5rem !important">
-                                                <label for="code">Subkategori</label>
-                                                <input type="text" id="code" name="code" class="form-control select2"
+                                                <label for="code">Code</label>
+                                                <input type="text" id="fakecode" name="code" class="form-control select2"
                                                     disabled>
+                                                <input type="hidden" id="code" name="code" class="form-control select2">
                                                 {{-- <select id="subcategory_id" class="form-control select2">
                                                     <option value="">Pilih Subkategori</option>
                                                 </select> --}}
@@ -159,7 +160,7 @@
                                 <label for="exampleFormControlFile1">Upload Gambar</label>
                                 <img src="" width="100%" class="mb-3" id="preview" required="">
                                 <input type="file" class="form-control-file" id="exampleFormControlFile1" name="images[]"
-                                    required="" multiple max="5">
+                                    required="" multiple max="5" accept="image/*">
                             </div>
                         </div>
                     </div>

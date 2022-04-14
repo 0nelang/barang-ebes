@@ -110,7 +110,7 @@ $format_number = '628' . $format_number[1];
             <ul class="nav-home5 js-menubar">
                 <li class="level1 dropdown">
                     <a href="/kain-batik">Kain Batik</a>
-                    <span class="icon-sub-menu"></span>
+                    {{-- <span class="icon-sub-menu"></span>
                     <div class="menu-level1 js-open-menu">
                         <ul class="level1">
                             @php
@@ -134,13 +134,13 @@ $format_number = '628' . $format_number[1];
                                 </li>
                             @endforeach
                         </ul>
-                    </div>
+                    </div> --}}
                 </li>
                 <li class="level1 dropdown">
                     <a href="/busana">Busana</a>
                     <span class="icon-sub-menu"></span>
                     <div class="menu-level1 js-open-menu">
-                        <ul class="level1">
+                        {{-- <ul class="level1">
                             @php
                                 $busana_categories = App\Category::where('type_id', 2)->get();
                             @endphp
@@ -161,7 +161,7 @@ $format_number = '628' . $format_number[1];
                                     </ul>
                                 </li>
                             @endforeach
-                        </ul>
+                        </ul> --}}
                         <div class="clearfix"></div>
                     </div>
                 </li>
@@ -169,7 +169,7 @@ $format_number = '628' . $format_number[1];
                     <a href="/aksesoris">Aksesoris</a>
                     <span class="icon-sub-menu"></span>
                     <div class="menu-level1 js-open-menu">
-                        <ul class="level1">
+                        {{-- <ul class="level1">
                             <li class="level2">
                                 <ul class="menu-level-2">
                                     @php
@@ -182,7 +182,7 @@ $format_number = '628' . $format_number[1];
                                     @endforeach
                                 </ul>
                             </li>
-                        </ul>
+                        </ul> --}}
                     </div>
                 </li>
                 <li class="level1 dropdown">
@@ -191,7 +191,7 @@ $format_number = '628' . $format_number[1];
                     <div class="menu-level1 js-open-menu">
                         <ul class="level1">
                             <li class="level2">
-                                <ul class="menu-level-2">
+                                {{-- <ul class="menu-level-2">
                                     @php
                                         $dekorasi_categories = App\Category::where('type_id', 4)->get();
                                     @endphp
@@ -200,7 +200,7 @@ $format_number = '628' . $format_number[1];
                                                 href="{{ route('product.all', ['type' => 'dekorasi', 'category' => Str::slug($dekorasi_category->name)]) }}"
                                                 title="">{{ $dekorasi_category->name }}</a></li>
                                     @endforeach
-                                </ul>
+                                </ul> --}}
                             </li>
                         </ul>
                     </div>
@@ -210,7 +210,7 @@ $format_number = '628' . $format_number[1];
                     <a href="{{ route('pengrajin') }}">Pengrajin</a>
                     <span class="icon-sub-menu"></span>
                     <div class="menu-level1 js-open-menu">
-                        <ul class="level1">
+                        {{-- <ul class="level1">
                             <li class="level2">
                                 <ul class="menu-level-2">
                                     @foreach ($users as $user)
@@ -220,7 +220,7 @@ $format_number = '628' . $format_number[1];
                                     @endforeach
                                 </ul>
                             </li>
-                        </ul>
+                        </ul> --}}
                         <div class="clearfix"></div>
                     </div>
                 </li>
@@ -284,7 +284,7 @@ $format_number = '628' . $format_number[1];
                             <li class="level1 dropdown">
                                 <a href="/kain-batik" title="">Jaket</a>
                                 <span class="plus js-plus-icon"></span>
-                                <div class="menu-level-1 dropdown-menu style5">
+                                {{-- <div class="menu-level-1 dropdown-menu style5">
                                     <ul class="level1">
                                         @php
                                             $kain_batik_categories = App\Category::where('type_id', 1)->get();
@@ -308,12 +308,12 @@ $format_number = '628' . $format_number[1];
                                         @endforeach
                                     </ul>
                                     <div class="clearfix"></div>
-                                </div>
+                                </div> --}}
                             </li>
                             <li class="level1 dropdown">
                                 <a href="/busana" title="">Parka</a>
                                 <span class="plus js-plus-icon"></span>
-                                <div class="menu-level-1 dropdown-menu style5">
+                                {{-- <div class="menu-level-1 dropdown-menu style5">
                                     <ul class="level1">
                                         @php
                                             $busana_categories = App\Category::where('type_id', 2)->get();
@@ -337,12 +337,12 @@ $format_number = '628' . $format_number[1];
                                         @endforeach
                                     </ul>
                                     <div class="clearfix"></div>
-                                </div>
+                                </div> --}}
                             </li>
                             <li class="level1 dropdown">
                                 <a href="/aksesoris" title="">Vest</a>
                                 <span class="plus js-plus-icon"></span>
-                                <div class="menu-level-1 dropdown-menu style5">
+                                {{-- <div class="menu-level-1 dropdown-menu style5">
                                     <ul class="level1">
                                         <li class="level2 col-6">
                                             <ul class="menu-level-2">
@@ -358,7 +358,7 @@ $format_number = '628' . $format_number[1];
                                         </li>
                                     </ul>
                                     <div class="clearfix"></div>
-                                </div>
+                                </div> --}}
                             </li>
                             {{-- <li class="level1">
                                 <a href="/dekorasi" title="">Dekorasi</a>
@@ -411,9 +411,6 @@ $format_number = '628' . $format_number[1];
                             </li> --}}
                             <li class="level1">
                                 <a href="/coffee">Cara Order</a>
-                            </li>
-                            <li class="level1">
-                                <a href="/artikel" title="">Faq</a>
                             </li>
                             <li class="level1">
                                 <a href="/tentang" title="">About us</a>

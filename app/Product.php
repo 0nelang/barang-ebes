@@ -8,6 +8,7 @@ use Str;
 class Product extends Model
 {
     protected $casts = ['tags' => 'array'];
+    protected $guarded = ['id'];
     protected $appends = ['sell_price_format', 'name_slug', 'wa_link'];
 
     public function getSellPriceFormatAttribute()

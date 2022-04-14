@@ -36,6 +36,7 @@ function getCode() {
             //     subcategory += `<option value="${value.id}">${value.name}</option>`;
             // });
             $("#code").val(response);
+            $("#fakecode").val(response);
             // $("#subcategory_id").html(subcategory);
         },
     });

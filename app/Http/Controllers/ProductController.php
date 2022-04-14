@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
-use App\Product;
-use App\ProductDetail;
-use App\ProductImage;
-use App\Subcategory;
-use App\Type;
-use App\User;
 use DB;
-use Illuminate\Http\Request;
+use Str;
 use Image;
 use Storage;
-use Str;
+use App\Type;
+use App\User;
+use App\Product;
+use App\Category;
+use App\ProductData;
+use App\Subcategory;
+use App\ProductImage;
+use App\ProductDetail;
+use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
@@ -49,11 +50,15 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request);
         DB::beginTransaction();
         try {
             $product = new Product();
+            $product->code = $request->code;
             $product->user_id = $request->user_id;
             $product->type_id = $request->type_id;
+            $product->category = $request->category;
+            $product->kondisi = $request->kondisi;
             $product->name = $request->name;
             $product->slug = Str::slug($request->slug);
             $product->description = $request->description;
@@ -63,20 +68,29 @@ class ProductController extends Controller
             $product->tags = $request->tags;
             $product->shopee = $request->shopee;
             $product->tokopedia = $request->tokopedia;
-
+            // dd($product);
             if ($product->save()) {
-                if ($request->category_id) {
-                    foreach ($request->category_id as $key => $category) {
-                        ProductDetail::create(
-                            [
-                                'product_id' => $product->id,
-                                'category_id' => $category,
-                                'subcategory_id' => $request->subcategory_id[$key] ?? null,
-                            ]
-                        );
-                    }
+                // if ($request->category_id) {
+                //     foreach ($request->category_id as $key => $category) {
+                //         ProductDetail::create(
+                //             [
+                //                 'product_id' => $product->id,
+                //                 'category_id' => $category,
+                //                 'subcategory_id' => $request->subcategory_id[$key] ?? null,
+                //             ]
+                //         );
+                //     }
+                // }
+                $data = ProductData::find(1);
+                $data->total = Product::all()->count();
+                // dd($data);
+                if ($product->category == 'atas') {
+                    $data->atas = $data->atas + 1;
+                }elseif ($product->category == 'bawah') {
+                    $data->bawah = $data->bawah + 1;
                 }
-
+                // dd($data);
+                $data->save();
                 if ($request->images) {
                     foreach ($request->images as $key => $image) {
                         $fileName = time() . rand(1, 1000) . '_' . Str::slug($request->name) . ".jpg";
@@ -127,6 +141,7 @@ class ProductController extends Controller
         $data['product'] = Product::find($id);
         $data['product_details'] = ProductDetail::whereProductId($id)->get();
         $data['product_images'] = ProductImage::whereProductId($id)->get();
+        $data['categories'] = Category::all();
         $data['users'] = User::all();
 
         $data_tags = [];
@@ -154,28 +169,39 @@ class ProductController extends Controller
             $product = Product::find($id);
             $product->user_id = $request->user_id;
             $product->type_id = $request->type_id;
+            $product->category = $request->category;
+            $product->kondisi = $request->kondisi;
             $product->name = $request->name;
             $product->slug = Str::slug($request->name);
             $product->description = $request->description;
             $product->price = $request->price;
             $product->disc = $request->disc;
             $product->sell_price = $request->price - ($request->price * $request->disc / 100);
+            if ($request->sold == 'on') {
+                $product->sold = true;
+            }else {
+                $product->sold = false;
+            }
             $product->tags = $request->tags;
             $product->shopee = $request->shopee;
             $product->tokopedia = $request->tokopedia;
-
             if ($product->save()) {
-                if ($request->category_id) {
-                    foreach ($request->category_id as $key => $category) {
-                        ProductDetail::create(
-                            [
-                                'product_id' => $product->id,
-                                'category_id' => $category,
-                                'subcategory_id' => $request->subcategory_id[$key],
-                            ]
-                        );
-                    }
-                }
+                // if ($request->category_id) {
+                //     foreach ($request->category_id as $key => $category) {
+                //         ProductDetail::create(
+                //             [
+                //                 'product_id' => $product->id,
+                //                 'category_id' => $category,
+                //                 'subcategory_id' => $request->subcategory_id[$key],
+                //             ]
+                //         );
+                //     }
+                // }
+                
+                $data = ProductData::find(1);
+                $data->terjual = Product::where('sold', 1)->count();
+                $data->total = Product::all()->count();
+                $data->save();
 
                 if ($request->images) {
                     foreach ($request->images as $key => $image) {
@@ -228,7 +254,10 @@ class ProductController extends Controller
         }
 
         Product::find($id)->delete();
-
+        $data = ProductData::find(1);
+        $data->terjual = Product::where('sold', 1)->count();
+        $data->total = Product::all()->count();
+        $data->save();
         $status = [
             'status' => 'success',
             'msg' => 'Data berhasil di hapus',
@@ -265,10 +294,11 @@ class ProductController extends Controller
     {
         // dd($id);
         // $subcategory = Subcategory::where('category_id', $id)->get();
-        if ($id == 1) {
-            $code = 'a' . time().rand(1,100);
-        } else {
-            $code = 'b' . time().rand(1,100);
+        $data = ProductData::find('1');
+        if ($id == 'atas') {
+            $code = 'A' . $data->atas + 1;
+        }elseif ($id == 'bawah') {
+            $code = 'B' . $data->bawah + 1;
         }
         
 

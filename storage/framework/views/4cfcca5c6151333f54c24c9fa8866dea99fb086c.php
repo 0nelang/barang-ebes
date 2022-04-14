@@ -36,10 +36,16 @@
                         </thead>
                         <tbody>
                             <?php $__empty_1 = true; $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $b): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                            
                                 <tr>
                                     <td class="text-center product-img">
-                                        <span><img src="<?php echo e(asset('storage/' . $b->productImages[0]->image)); ?>"
-                                                width="100px"></span>
+                                        <span><img src="
+                                            <?php if($b->productImages->isEmpty()): ?>
+                                            <?php else: ?>
+                                            <?php echo e(asset('storage/' . $b->productImages[0]->image)); ?>
+
+                                            <?php endif; ?>
+                                            "width="100px"></span>
                                     </td>
                                     <td><?php echo e($b->user->name); ?></td>
                                     <td><?php echo e($b->type->name); ?></td>
