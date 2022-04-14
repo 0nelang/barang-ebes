@@ -17,6 +17,7 @@
     <div class="widget-content widget-content-area">
         <form action="{{ route('article.update', $article->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
+           
             <input type="hidden" name='_method' value="PUT">
             <div class="form-group mb-4 mt-3">
                 <label for="exampleFormControlFile1">Upload Gambar</label>

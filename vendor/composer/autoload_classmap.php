@@ -56,6 +56,7 @@ return array(
     'App\\Product' => $baseDir . '/app/Product.php',
     'App\\ProductDetail' => $baseDir . '/app/ProductDetail.php',
     'App\\ProductImage' => $baseDir . '/app/ProductImage.php',
+    'App\\Produkdata' => $baseDir . '/app/Produkdata.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',

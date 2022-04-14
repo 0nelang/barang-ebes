@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use App\Banner;
+use App\Faq;
 use App\Product;
 use App\Type;
 use Illuminate\Http\Request;
@@ -23,6 +24,7 @@ class IndexController extends Controller
 
         $data['types'] = collect($categories);
         $data['articles'] = Article::inRandomOrder()->limit(3)->get();
+        $data['faq'] = Faq::all();
 
         return view('index', $data);
     }

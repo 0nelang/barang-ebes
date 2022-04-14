@@ -4,8 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Produkdata extends Model
+class Faq extends Model
 {
-    protected $table = 'product_data';
+    public $timestamps = false;
+    protected $table = 'faq';
     protected $guarded = ['id'];
 }

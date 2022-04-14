@@ -532,6 +532,7 @@ class ComposerStaticInit57be92e2ac3c98ab0955154b0dc2edc7
         'App\\Product' => __DIR__ . '/../..' . '/app/Product.php',
         'App\\ProductDetail' => __DIR__ . '/../..' . '/app/ProductDetail.php',
         'App\\ProductImage' => __DIR__ . '/../..' . '/app/ProductImage.php',
+        'App\\Produkdata' => __DIR__ . '/../..' . '/app/Produkdata.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',

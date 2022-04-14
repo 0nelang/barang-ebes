@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\FaqControllerbru;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -63,6 +63,7 @@ Route::post('search-data', 'SearchController@data')->name('search.data');
 Route::group(['middleware' => 'auth'], function () {
 
     Route::resource('dashboard', 'DashboardController');
+    // Route::resource('faq', 'FaqController');
 
     Route::resource('product', 'ProductController');
     Route::resource('home-product', 'HomeProductController');
@@ -90,6 +91,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('about/value/{id}', 'AboutController@valueDestroy');
 
     Route::resource('setting', 'SettingController');
+
+    Route::get('faq','FaqControllerbru@index')->name('faq.index');
+    Route::get('faq/create','FaqControllerbru@create')->name('faq.create');
+    Route::post('faq','FaqControllerbru@store')->name('faq.store');
+    Route::get('faq/{faq:id}','FaqControllerbru@show')->name('faq.show');
+    Route::put('faq/update/{faq:id}','FaqControllerbru@update')->name('faq.update');
+    Route::get('faq/delete/{faq:id}','FaqControllerbru@destroy')->name('faq.destroy');
 });
 
 Auth::routes();

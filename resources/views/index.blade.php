@@ -133,9 +133,31 @@
             </div>
         </div>
 
-        <div class="container">
+        <div class="container ">
+            @foreach ($faq as $index => $fa)
+            <div class="panel-group" id="faqAccordion">
+                <div class="panel panel-default ">
+                    <div class="panel-heading accordion-toggle question-toggle collapsed" data-toggle="collapse" data-parent="#faqAccordion" data-target="#question{{ $index }}">
+                         <h4 class="panel-title">
+                            <a href="#{{ $index }}" class="ing">Q: {{ $fa->pertanyaan }}</a>
+                      </h4>
+        
+                    </div>
+                    <div id="question{{ $index }}" class="panel-collapse collapse" style="height: 0px;">
+                        <div class="panel-body">
+                             <h5><span class="label label-primary">Jawaban</span></h5>
+        
+                            <p>{{ $fa->jawaban }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+            <!--/panel-group-->
+        </div>
+        {{-- <div class="container">
             <div class="panel-group" id="accordion">
-                <div class="panel panel-default">
+                <div class="panel pan   el-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
                             <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
@@ -178,7 +200,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 
     
