@@ -1,10 +1,8 @@
-@extends('layout.admin')
+<?php $__env->startSection('title', 'Admin Dashboard'); ?>
 
-@section('title', 'Admin Dashboard')
+<?php $__env->startSection('page', 'Data Master > Produk'); ?>
 
-@section('page', 'Data Master > Produk')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
     <div class="col-lg-12">
         <h3 calss="mb-2">Daftar Produk</h3>
         <div class="statbox widget box box-shadow">
@@ -15,7 +13,7 @@
                 </div>
             </div>
             <div class="widget-content widget-content-area">
-                <a class="btn btn-primary mb-2 ml-3" href="{{ route('product.create') }}"><i>
+                <a class="btn btn-primary mb-2 ml-3" href="<?php echo e(route('product.create')); ?>"><i>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="feather feather-plus-circle">
@@ -37,24 +35,25 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse($products as $b)
-                            {{-- @dd($b->productImages->isEmpty()) --}}
+                            <?php $__empty_1 = true; $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $b): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                            
                                 <tr>
                                     <td class="text-center product-img">
                                         <span><img src="
-                                            @if ($b->productImages->isEmpty())
-                                            @else
-                                            {{ asset('storage/' . $b->productImages[0]->image) }}
-                                            @endif
+                                            <?php if($b->productImages->isEmpty()): ?>
+                                            <?php else: ?>
+                                            <?php echo e(asset('storage/' . $b->productImages[0]->image)); ?>
+
+                                            <?php endif; ?>
                                             "width="100px"></span>
                                     </td>
-                                    <td>{{ $b->user->name }}</td>
-                                    <td>{{ $b->type->name }}</td>
-                                    <td>{{ $b->name }}</td>
-                                    <td>{{ substr(strip_tags($b->description), 0, 200) }}...</td>
+                                    <td><?php echo e($b->user->name); ?></td>
+                                    <td><?php echo e($b->type->name); ?></td>
+                                    <td><?php echo e($b->name); ?></td>
+                                    <td><?php echo e(substr(strip_tags($b->description), 0, 200)); ?>...</td>
                                     <td class="text-center">
                                         <ul class="table-controls">
-                                            <li><a href="{{ route('product.show', $b->id) }}" class="bs-tooltip"
+                                            <li><a href="<?php echo e(route('product.show', $b->id)); ?>" class="bs-tooltip"
                                                     data-toggle="tooltip" data-placement="top" title=""
                                                     data-original-title="Edit"><svg xmlns="http://www.w3.org/2000/svg"
                                                         width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -65,7 +64,7 @@
                                                         </path>
                                                     </svg></a></li>
                                             <li>
-                                                <a href="#" onclick="deleteData({{ $b->id }})" class="bs-tooltip"
+                                                <a href="#" onclick="deleteData(<?php echo e($b->id); ?>)" class="bs-tooltip"
                                                     data-toggle="tooltip" data-placement="top" title=""
                                                     data-original-title="Delete"><svg xmlns="http://www.w3.org/2000/svg"
                                                         width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -77,26 +76,26 @@
                                                         </path>
                                                     </svg>
                                                 </a>
-                                                <form action="{{ route('product.destroy', ['product' => $b->id]) }}"
-                                                    method="POST" id="form-delete{{ $b->id }}">
+                                                <form action="<?php echo e(route('product.destroy', ['product' => $b->id])); ?>"
+                                                    method="POST" id="form-delete<?php echo e($b->id); ?>">
                                                     <input type="hidden" name="_method" value="DELETE">
-                                                    @csrf
+                                                    <?php echo csrf_field(); ?>
                                                 </form>
                                             </li>
                                         </ul>
                                     </td>
                                 </tr>
-                            @empty
-                            @endforelse
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                            <?php endif; ?>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('script')
+<?php $__env->startSection('script'); ?>
     <script>
         function doDelete(id) {
 
@@ -127,4 +126,6 @@
 
         }
     </script>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layout.admin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\Laravel\rumah-ebes\resources\views/product/index.blade.php ENDPATH**/ ?>

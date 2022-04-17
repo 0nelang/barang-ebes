@@ -1,10 +1,8 @@
-@extends('layout.admin')
+<?php $__env->startSection('title', 'Admin Dashboard'); ?>
 
-@section('title', 'Admin Dashboard')
+<?php $__env->startSection('page', 'Data Master > Produk > Edit'); ?>
 
-@section('page', 'Data Master > Produk > Edit')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
     <style>
         .custom-switch.custom-switch-md .custom-control-label {
             padding-left: 2rem;
@@ -38,9 +36,9 @@
                 </div>
             </div>
             <div class="widget-content widget-content-area">
-                <form action="{{ route('product.update', ['product' => $product->id]) }}" method="POST"
+                <form action="<?php echo e(route('product.update', ['product' => $product->id])); ?>" method="POST"
                     enctype="multipart/form-data">
-                    @csrf
+                    <?php echo csrf_field(); ?>
                     <input type="hidden" name="_method" value="PUT">
                     <div class="row">
                         <div class="col-md-4">
@@ -48,11 +46,12 @@
                                 <label for="user_id">Brand</label>
                                 <select name="user_id" id="user_id" class="form-control select2" required>
                                     <option value="">Pilih Brand</option>
-                                    @foreach ($users as $user)
-                                        <option value="{{ $user->id }}"
-                                            @if ($user->id == $product->user_id) selected @endif>{{ $user->name }}
+                                    <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($user->id); ?>"
+                                            <?php if($user->id == $product->user_id): ?> selected <?php endif; ?>><?php echo e($user->name); ?>
+
                                         </option>
-                                    @endforeach
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
                             </div>
                         </div>
@@ -62,11 +61,12 @@
                                 <select name="type_id" id="type_id" class="form-control select2" required
                                     onchange="getCategory()">
                                     <option value="">Pilih Jenis</option>
-                                    @foreach ($types as $type)
-                                        <option value="{{ $type->id }}"
-                                            @if ($type->id == $product->type_id) selected @endif>{{ $type->name }}
+                                    <?php $__currentLoopData = $types; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $type): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($type->id); ?>"
+                                            <?php if($type->id == $product->type_id): ?> selected <?php endif; ?>><?php echo e($type->name); ?>
+
                                         </option>
-                                    @endforeach
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
                             </div>
                         </div>
@@ -75,11 +75,12 @@
                                 <label for="kondisi">Pilih Kondisi</label>
                                 <select name="kondisi" id="kondisi" class="form-control select2" required>
                                     <option value="">Pilih Kondisi</option>
-                                    @foreach ($categories as $category)
-                                        <option value="{{ $category->id }}"
-                                            @if ($category->id == $product->kondisi) selected @endif>{{ $category->name }}
+                                    <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($category->id); ?>"
+                                            <?php if($category->id == $product->kondisi): ?> selected <?php endif; ?>><?php echo e($category->name); ?>
+
                                         </option>
-                                    @endforeach
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
                             </div>
                         </div>
@@ -95,10 +96,10 @@
                                                     name="category" disabled>
                                                     <option value="">Pilih Kategori</option>
                                                     <option value="atas"
-                                                        {{ $product->category == 'atas' ? 'selected' : '' }}>Atas
+                                                        <?php echo e($product->category == 'atas' ? 'selected' : ''); ?>>Atas
                                                     </option>
                                                     <option value="bawah"
-                                                        {{ $product->category == 'bawah' ? 'selected' : '' }}>Bawah
+                                                        <?php echo e($product->category == 'bawah' ? 'selected' : ''); ?>>Bawah
                                                     </option>
                                                 </select>
                                             </div>
@@ -107,30 +108,26 @@
                                         <th class="col">
                                             <div class="form-group" style="padding-bottom: 1.5rem !important">
                                                 <label for="code">Code</label>
-                                                <input type="text" id="fakecode" name="code" value="{{ $product->code }}"
+                                                <input type="text" id="fakecode" name="code" value="<?php echo e($product->code); ?>"
                                                     class="form-control select2" disabled>
                                             </div>
                                         </th>
-                                        {{-- <th>
-                                            <div class="form-group mb-5">
-                                                <button type="button" class="btn btn-primary"
-                                                    onclick="addProductDetail()">+</button>
-                                            </div>
-                                        </th> --}}
+                                        
                                     </tr>
                                 </thead>
                                 <tbody id="data-detail">
-                                    @foreach ($product_details as $product_detail)
-                                        <tr id="detail{{ $product_detail->id }}">
-                                            <td>{{ $product_detail->category->name }}</td>
-                                            <td>{{ $product_detail->subcategory ? $product_detail->subcategory->name : '' }}
+                                    <?php $__currentLoopData = $product_details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product_detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <tr id="detail<?php echo e($product_detail->id); ?>">
+                                            <td><?php echo e($product_detail->category->name); ?></td>
+                                            <td><?php echo e($product_detail->subcategory ? $product_detail->subcategory->name : ''); ?>
+
                                             </td>
                                             <td>
                                                 <button type="button" class="btn btn-danger"
-                                                    onclick="deleteDetail({{ $product_detail->id }})">-</button>
+                                                    onclick="deleteDetail(<?php echo e($product_detail->id); ?>)">-</button>
                                             </td>
                                         </tr>
-                                    @endforeach
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </tbody>
                             </table>
                         </div>
@@ -138,28 +135,28 @@
                             <div class="form-group mb-4">
                                 <label for="name">Nama Produk</label>
                                 <input type="text" class="form-control" id="name" name="name" placeholder="Nama Produk"
-                                    required="" value="{{ $product->name }}">
+                                    required="" value="<?php echo e($product->name); ?>">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group mb-4">
                                 <label for="price">Harga</label>
                                 <input type="number" class="form-control" id="price" name="price"
-                                    placeholder="Harga Produk" required="" value="{{ $product->price }}">
+                                    placeholder="Harga Produk" required="" value="<?php echo e($product->price); ?>">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group mb-4">
                                 <label for="disc">Diskon</label>
                                 <input type="number" class="form-control" id="disc" name="disc" placeholder="Diskon (%)"
-                                    value="{{ $product->disc }}" onblur="getSellPrice()">
+                                    value="<?php echo e($product->disc); ?>" onblur="getSellPrice()">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group mb-4">
                                 <label for="price">Harga Jual</label>
                                 <input type="text" class="form-control" id="sell_price" name="sell_price" required=""
-                                    readonly value="{{ number_format($product->sell_price) }}">
+                                    readonly value="<?php echo e(number_format($product->sell_price)); ?>">
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -172,20 +169,20 @@
                             <div class="form-group mb-4">
                                 <label for="exampleFormControlTextarea1">Deskripsi</label>
                                 <textarea class="form-control summernote" id="exampleFormControlTextarea1" rows="3" name="description"
-                                    required="">{{ $product->description }}</textarea>
+                                    required=""><?php echo e($product->description); ?></textarea>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group mb-4">
                                 <label for="disc">Tag</label>
                                 <select name="tags[]" id="tags" class="form-control select2-tags" multiple>
-                                    @foreach ($tags as $tag)
-                                        <option value="{{ $tag }}"
-                                            @if ($product->tags) @if (in_array(strtolower($tag), $product->tags))
-                                                selected @endif
-                                            @endif
-                                            >{{ $tag }}</option>
-                                    @endforeach
+                                    <?php $__currentLoopData = $tags; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tag): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($tag); ?>"
+                                            <?php if($product->tags): ?> <?php if(in_array(strtolower($tag), $product->tags)): ?>
+                                                selected <?php endif; ?>
+                                            <?php endif; ?>
+                                            ><?php echo e($tag); ?></option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
                             </div>
                         </div>
@@ -193,28 +190,28 @@
                             <div class="form-group mb-4">
                                 <label for="shopee">Link Shopee</label>
                                 <input type="text" class="form-control" id="shopee" name="shopee"
-                                    placeholder="Kosongkan jika tidak ada" value="{{ $product->shopee }}">
+                                    placeholder="Kosongkan jika tidak ada" value="<?php echo e($product->shopee); ?>">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group mb-4">
                                 <label for="tokopedia">Link Tokopedia</label>
                                 <input type="text" class="form-control" id="tokopedia" name="tokopedia"
-                                    placeholder="Kosongkan jika tidak ada" value="{{ $product->tokopedia }}">
+                                    placeholder="Kosongkan jika tidak ada" value="<?php echo e($product->tokopedia); ?>">
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="row">
-                                @forelse ($product_images as $product_image)
-                                    <div class="col-md-3" id="image{{ $product_image->id }}">
-                                        <img src="{{ asset('storage/' . $product_image->image) }}"
+                                <?php $__empty_1 = true; $__currentLoopData = $product_images; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product_image): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                                    <div class="col-md-3" id="image<?php echo e($product_image->id); ?>">
+                                        <img src="<?php echo e(asset('storage/' . $product_image->image)); ?>"
                                             alt="Rumah Batik Probolinggo" srcset="" class="w-100">
 
                                         <button type="button" class="btn btn-danger btn-block"
-                                            onclick="deleteImage({{ $product_image->id }})">Hapus</button>
+                                            onclick="deleteImage(<?php echo e($product_image->id); ?>)">Hapus</button>
                                     </div>
-                                @empty
-                                @endforelse
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                                <?php endif; ?>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -227,7 +224,7 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-10">
-                            <a class="btn btn-danger mt-3" href="{{ route('product.index') }}"><i
+                            <a class="btn btn-danger mt-3" href="<?php echo e(route('product.index')); ?>"><i
                                     class="flaticon-cancel-12"></i> Back</a>
                             <button type="submit" class="btn btn-primary mt-3">Simpan</button>
                         </div>
@@ -236,10 +233,10 @@
             </div>
         </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('script')
-    <script src="{{ asset('js/product.js') }}"></script>
+<?php $__env->startSection('script'); ?>
+    <script src="<?php echo e(asset('js/product.js')); ?>"></script>
     <script type="text/javascript">
         var loadFile = function(event, no) {
             var output = document.getElementById('preview');
@@ -257,4 +254,6 @@
             tabDisable: true
         });
     </script>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layout.admin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\Laravel\rumah-ebes\resources\views/product/edit.blade.php ENDPATH**/ ?>

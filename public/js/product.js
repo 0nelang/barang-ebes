@@ -21,7 +21,7 @@ function getCategory() {
     });
 }
 
-function getSubcategory() {
+function getCode() {
     var id = $("#category_id").val();
 
     $.ajax({
@@ -31,12 +31,13 @@ function getSubcategory() {
             "X-CSRF-TOKEN": token,
         },
         success: function (response) {
-            var subcategory = `<option value="">Pilih Sub Kategori</option>`;
-            response.map((value) => {
-                subcategory += `<option value="${value.id}">${value.name}</option>`;
-            });
-
-            $("#subcategory_id").html(subcategory);
+            // var subcategory = `<option value="">Pilih Sub Kategori</option>`;
+            // response.map((value) => {
+            //     subcategory += `<option value="${value.id}">${value.name}</option>`;
+            // });
+            $("#code").val(response);
+            $("#fakecode").val(response);
+            // $("#subcategory_id").html(subcategory);
         },
     });
 }
