@@ -150,7 +150,7 @@
                             <p><?php echo e($fa->jawaban); ?></p>
                         </div>
                     </div>
-                </div>
+                </div>  
             </div>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             <!--/panel-group-->

@@ -150,7 +150,7 @@
                             <p>{{ $fa->jawaban }}</p>
                         </div>
                     </div>
-                </div>
+                </div>  
             </div>
             @endforeach
             <!--/panel-group-->
