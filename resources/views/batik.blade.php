@@ -48,7 +48,7 @@
             <div class="shop-element left">
                 <ul class="js-filter">
                     <li class="filter filter-static hidden-xs hidden-sm">
-                        <a href="" onClick="return false;"><i class="zoa-icon-filter"></i>Filter berdasar Pengrajin</a>
+                        <a href="" onClick="return false;"><i class="zoa-icon-filter"></i>Filter berdasar Kondisi</a>
                         <div class="dropdown-menu fullw">
                             <div class="col-md-15 col-lg-15 widget-filter filter-cate">
                                 <ul>

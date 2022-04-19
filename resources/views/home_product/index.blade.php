@@ -24,6 +24,7 @@
                             </tr>
                         </thead>
                         <tbody>
+                            {{-- @dd($home_products) --}}
                             @forelse($home_products as $b)
                                 <tr>
                                     <td>{{ $b->type->name }}</td>

@@ -97,7 +97,7 @@
         @endforeach
     </div>
     <div class="product-collection-grid product-grid pd-top-15" style="background-color: #F9F9F9;">
-        <div class="container mg-bottom-30">
+        {{-- <div class="container mg-bottom-30">
             <div class="row">
                 <div class="col-md-12 mg-bottom-30 mg-top-30">
                     <div class="title_custom text-center">
@@ -106,7 +106,7 @@
                 </div>
             </div>
             <div class="row">
-                {{-- @foreach ($articles as $a)
+                @foreach ($articles as $a)
                     <div class="col-md-4 col-xs-12">
                         <div class="card_article">
                             <img src="{{ asset('storage/' . $a->image) }}" alt="Rumah Batik Probolinggo" />
@@ -124,7 +124,7 @@
                             </div>
                         </div>
                     </div>
-                @endforeach --}}
+                @endforeach
             </div>
         </div>
         <div class="mg-top-30 mg-bottom-30">
@@ -132,7 +132,7 @@
                 <a href="/artikel" class="btn-loadmore">Lihat Semua Artikel &nbsp;&nbsp;&nbsp;<i
                         class="fa fa-angle-right right"></i></a>
             </div>
-        </div>
+        </div> --}}
 
         <div class="container ">
             @foreach ($faq as $index => $fa)

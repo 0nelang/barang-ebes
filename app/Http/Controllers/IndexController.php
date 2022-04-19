@@ -2,16 +2,8 @@
 
 namespace App\Http\Controllers;
 
-<<<<<<< HEAD
-use App\Article;
-use App\Banner;
-use App\Faq;
-use App\Product;
-use App\Type;
-use Illuminate\Http\Request;
-=======
->>>>>>> b794ad68e2ad53e9dadb66853fd51187e8485c3d
 use Str;
+use App\Faq;
 use App\Type;
 use App\Banner;
 use App\Article;
@@ -27,7 +19,6 @@ class IndexController extends Controller
         $data['banners'] = Banner::where('type_id', null)->get();
         $categories = Type::whereHas('products')->get();
 
-<<<<<<< HEAD
         $categories->map(function ($q) {
             $q->products = Product::where('type_id', $q->id)
                 ->inRandomOrder()->limit(4)->get();
@@ -37,16 +28,6 @@ class IndexController extends Controller
         $data['articles'] = Article::inRandomOrder()->limit(3)->get();
         $data['faq'] = Faq::all();
 
-=======
-        // $categories->map(function ($q) {
-        //     $q->products = Product::where('type_id', $q->id)
-        //         ->inRandomOrder()->limit(4)->get();
-        // });
-        // dd(Category::all());
-        $data['types'] = Type::all();
-        // $data['articles'] = Article::inRandomOrder()->limit(3)->get();
-        // dd($data);
->>>>>>> b794ad68e2ad53e9dadb66853fd51187e8485c3d
         return view('index', $data);
     }
 

@@ -16,7 +16,7 @@
                                 <div class="card stat-widget">
                                     <div class="card-body">
                                         <h5 class="card-title">Total Produk Ready</h5>
-                                        <h2>32</h2>
+                                        <h2>{{ $total }}</h2>
                                         <p>TOTAL</p>
                                     </div>
                                 </div>
@@ -25,7 +25,7 @@
                                 <div class="card stat-widget">
                                     <div class="card-body">
                                         <h5 class="card-title">Total Produk Sold</h5>
-                                        <h2>23</h2>
+                                        <h2>{{ $terjual }}</h2>
                                         <p>TOTAL</p>
                                     </div>
                                 </div>
