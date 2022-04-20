@@ -28,14 +28,14 @@ Route::get('katalogv2', function () {
 Route::get('autocomplete', 'IndexController@autocomplete')->name('autocomplete');
 
 Route::get('coffee', 'PageController@coffee');
-Route::get('kain-batik', 'BatikController@index');
-Route::get('kain-batik/{category}', 'BatikController@category')->name('batik.category');
+Route::get('jaket', 'BatikController@index');
+Route::get('jaket/{category}', 'BatikController@category')->name('batik.category');
 Route::post('batik-data', 'BatikController@data');
 
-Route::get('busana', 'BusanaController@index');
+Route::get('parka', 'BusanaController@index');
 Route::post('busana-data', 'BusanaController@data');
 
-Route::get('aksesoris', 'AksesorisController@index');
+Route::get('vest', 'AksesorisController@index');
 Route::post('aksesoris-data', 'AksesorisController@data');
 
 Route::get('dekorasi', 'DekorasiController@index');

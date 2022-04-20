@@ -282,7 +282,7 @@ $format_number = '628' . $format_number[1];
                         </div>
                         <ul class="nav navbar-nav js-menubar hidden-xs hidden-sm">
                             <li class="level1 dropdown">
-                                <a href="/kain-batik" title="">Jaket</a>
+                                <a href="/jaket" title="">Jaket</a>
                                 <span class="plus js-plus-icon"></span>
                                 {{-- <div class="menu-level-1 dropdown-menu style5">
                                     <ul class="level1">
@@ -311,7 +311,7 @@ $format_number = '628' . $format_number[1];
                                 </div> --}}
                             </li>
                             <li class="level1 dropdown">
-                                <a href="/busana" title="">Parka</a>
+                                <a href="/parka" title="">Parka</a>
                                 <span class="plus js-plus-icon"></span>
                                 {{-- <div class="menu-level-1 dropdown-menu style5">
                                     <ul class="level1">
@@ -340,7 +340,7 @@ $format_number = '628' . $format_number[1];
                                 </div> --}}
                             </li>
                             <li class="level1 dropdown">
-                                <a href="/aksesoris" title="">Vest</a>
+                                <a href="/vest" title="">Vest</a>
                                 <span class="plus js-plus-icon"></span>
                                 {{-- <div class="menu-level-1 dropdown-menu style5">
                                     <ul class="level1">
