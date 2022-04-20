@@ -84,58 +84,13 @@ $format_number = '628' . $format_number[1];
             <ul class="nav-home5 js-menubar">
                 <li class="level1 dropdown">
                     <a href="/kain-batik">Kain Batik</a>
-                    <span class="icon-sub-menu"></span>
-                    <div class="menu-level1 js-open-menu">
-                        <ul class="level1">
-                            <?php
-                                $kain_batik_categories = App\Category::where('type_id', 1)->get();
-                            ?>
-                            <?php $__currentLoopData = $kain_batik_categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $kain_batik_category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <?php
-                                    $subcategories = App\Subcategory::where('category_id', $kain_batik_category->id)->get();
-                                ?>
-                                <li class="level2">
-                                    <a
-                                        href="<?php echo e(route('batik.category', ['category' => Str::slug($kain_batik_category->name)])); ?>"><?php echo e($kain_batik_category->name); ?></a>
-                                    <ul class="menu-level-2">
-                                        <?php $__currentLoopData = $subcategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subcategory): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                            <li class="level3"><a
-                                                    href="<?php echo e(route('product.all', ['type' => 'kain-batik', 'category' => Str::slug($kain_batik_category->name)])); ?>?subkategori=<?php echo e(Str::slug($subcategory->name)); ?>"
-                                                    title=""><?php echo e($subcategory->name); ?></a>
-                                            </li>
-                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                    </ul>
-                                </li>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        </ul>
-                    </div>
+                    
                 </li>
                 <li class="level1 dropdown">
                     <a href="/busana">Busana</a>
                     <span class="icon-sub-menu"></span>
                     <div class="menu-level1 js-open-menu">
-                        <ul class="level1">
-                            <?php
-                                $busana_categories = App\Category::where('type_id', 2)->get();
-                            ?>
-                            <?php $__currentLoopData = $busana_categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $busana_category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <?php
-                                    $subcategories = App\Subcategory::where('category_id', $busana_category->id)->get();
-                                ?>
-                                <li class="level2">
-                                    <a
-                                        href="<?php echo e(route('product.all', ['type' => 'busana', 'category' => Str::slug($busana_category->name)])); ?>"><?php echo e($busana_category->name); ?></a>
-                                    <ul class="menu-level-2">
-                                        <?php $__currentLoopData = $subcategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subcategory): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                            <li class="level3"><a
-                                                    href="<?php echo e(route('product.all', ['type' => 'busana', 'category' => Str::slug($busana_category->name)])); ?>?subkategori=<?php echo e(Str::slug($subcategory->name)); ?>"
-                                                    title=""><?php echo e($subcategory->name); ?></a>
-                                            </li>
-                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                    </ul>
-                                </li>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        </ul>
+                        
                         <div class="clearfix"></div>
                     </div>
                 </li>
@@ -143,20 +98,7 @@ $format_number = '628' . $format_number[1];
                     <a href="/aksesoris">Aksesoris</a>
                     <span class="icon-sub-menu"></span>
                     <div class="menu-level1 js-open-menu">
-                        <ul class="level1">
-                            <li class="level2">
-                                <ul class="menu-level-2">
-                                    <?php
-                                        $aksesoris_categories = App\Category::where('type_id', 3)->get();
-                                    ?>
-                                    <?php $__currentLoopData = $aksesoris_categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $aksesoris_category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <li class="level3"><a
-                                                href="<?php echo e(route('product.all', ['type' => 'aksesoris', 'category' => Str::slug($aksesoris_category->name)])); ?>"
-                                                title=""><?php echo e($aksesoris_category->name); ?></a></li>
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                </ul>
-                            </li>
-                        </ul>
+                        
                     </div>
                 </li>
                 <li class="level1 dropdown">
@@ -165,16 +107,7 @@ $format_number = '628' . $format_number[1];
                     <div class="menu-level1 js-open-menu">
                         <ul class="level1">
                             <li class="level2">
-                                <ul class="menu-level-2">
-                                    <?php
-                                        $dekorasi_categories = App\Category::where('type_id', 4)->get();
-                                    ?>
-                                    <?php $__currentLoopData = $dekorasi_categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $dekorasi_category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <li class="level3"><a
-                                                href="<?php echo e(route('product.all', ['type' => 'dekorasi', 'category' => Str::slug($dekorasi_category->name)])); ?>"
-                                                title=""><?php echo e($dekorasi_category->name); ?></a></li>
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                </ul>
+                                
                             </li>
                         </ul>
                     </div>
@@ -184,17 +117,7 @@ $format_number = '628' . $format_number[1];
                     <a href="<?php echo e(route('pengrajin')); ?>">Pengrajin</a>
                     <span class="icon-sub-menu"></span>
                     <div class="menu-level1 js-open-menu">
-                        <ul class="level1">
-                            <li class="level2">
-                                <ul class="menu-level-2">
-                                    <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <li class="level3"><a
-                                                href="<?php echo e(route('pengrajin.detail', ['id' => $user->id, 'name' => Str::slug($user->name)])); ?>"
-                                                title=""><?php echo e($user->name); ?></a></li>
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                </ul>
-                            </li>
-                        </ul>
+                        
                         <div class="clearfix"></div>
                     </div>
                 </li>
@@ -258,88 +181,21 @@ $format_number = '628' . $format_number[1];
                             <li class="level1 dropdown">
                                 <a href="/kain-batik" title="">Jaket</a>
                                 <span class="plus js-plus-icon"></span>
-                                <div class="menu-level-1 dropdown-menu style5">
-                                    <ul class="level1">
-                                        <?php
-                                            $kain_batik_categories = App\Category::where('type_id', 1)->get();
-                                        ?>
-                                        <?php $__currentLoopData = $kain_batik_categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $kain_batik_category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                            <?php
-                                                $subcategories = App\Subcategory::where('category_id', $kain_batik_category->id)->get();
-                                            ?>
-                                            <li class="level2 col-6">
-                                                <a
-                                                    href="<?php echo e(route('batik.category', ['category' => Str::slug($kain_batik_category->name)])); ?>"><?php echo e($kain_batik_category->name); ?></a>
-                                                <ul class="menu-level-2">
-                                                    <?php $__currentLoopData = $subcategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subcategory): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                        <li class="level3"><a
-                                                                href="<?php echo e(route('product.all', ['type' => 'kain-batik', 'category' => Str::slug($kain_batik_category->name)])); ?>?subkategori=<?php echo e(Str::slug($subcategory->name)); ?>"
-                                                                title=""><?php echo e($subcategory->name); ?></a>
-                                                        </li>
-                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                                </ul>
-                                            </li>
-                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                    </ul>
-                                    <div class="clearfix"></div>
-                                </div>
+                                
                             </li>
                             <li class="level1 dropdown">
                                 <a href="/busana" title="">Parka</a>
                                 <span class="plus js-plus-icon"></span>
-                                <div class="menu-level-1 dropdown-menu style5">
-                                    <ul class="level1">
-                                        <?php
-                                            $busana_categories = App\Category::where('type_id', 2)->get();
-                                        ?>
-                                        <?php $__currentLoopData = $busana_categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $busana_category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                            <?php
-                                                $subcategories = App\Subcategory::where('category_id', $busana_category->id)->get();
-                                            ?>
-                                            <li class="level2 col-6">
-                                                <a
-                                                    href="<?php echo e(route('product.all', ['type' => 'busana', 'category' => Str::slug($busana_category->name)])); ?>"><?php echo e($busana_category->name); ?></a>
-                                                <ul class="menu-level-2">
-                                                    <?php $__currentLoopData = $subcategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subcategory): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                        <li class="level3"><a
-                                                                href="<?php echo e(route('product.all', ['type' => 'busana', 'category' => Str::slug($busana_category->name)])); ?>?subkategori=<?php echo e(Str::slug($subcategory->name)); ?>"
-                                                                title=""><?php echo e($subcategory->name); ?></a>
-                                                        </li>
-                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                                </ul>
-                                            </li>
-                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                    </ul>
-                                    <div class="clearfix"></div>
-                                </div>
+                                
                             </li>
                             <li class="level1 dropdown">
                                 <a href="/aksesoris" title="">Vest</a>
                                 <span class="plus js-plus-icon"></span>
-                                <div class="menu-level-1 dropdown-menu style5">
-                                    <ul class="level1">
-                                        <li class="level2 col-6">
-                                            <ul class="menu-level-2">
-                                                <?php
-                                                    $aksesoris_categories = App\Category::where('type_id', 3)->get();
-                                                ?>
-                                                <?php $__currentLoopData = $aksesoris_categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $aksesoris_category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                    <li class="level3"><a
-                                                            href="<?php echo e(route('product.all', ['type' => 'aksesoris', 'category' => Str::slug($aksesoris_category->name)])); ?>"
-                                                            title=""><?php echo e($aksesoris_category->name); ?></a></li>
-                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                    <div class="clearfix"></div>
-                                </div>
+                                
                             </li>
                             
                             <li class="level1">
                                 <a href="/coffee">Cara Order</a>
-                            </li>
-                            <li class="level1">
-                                <a href="/artikel" title="">Faq</a>
                             </li>
                             <li class="level1">
                                 <a href="/tentang" title="">About us</a>
