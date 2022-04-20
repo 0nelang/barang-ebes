@@ -13,19 +13,19 @@ class BusanaController extends Controller
     public function index()
     {
         $data['banners'] = Banner::where('type_id', 2)->get();
-        $data['users'] = User::whereHas('products', function ($q) {
-            $q->where('type_id', 2);
-        })->get();
-        $categories = Category::all();
-        // dd($categories);
+        $data['users'] = Category::all();
+        // $data['users'] = User::whereHas('products', function ($q) {
+        //     $q->where('type_id', 2);
+        // })->get();
+        // $categories = Category::all();
 
-        $categories->map(function ($q) {
-            $q->products = Product::whereHas('details', function ($d) use ($q) {
-                $d->where('category_id', $q->id);
-            })->inRandomOrder()->limit(4)->get();
-        });
+        // $categories->map(function ($q) {
+        //     $q->products = Product::whereHas('details', function ($d) use ($q) {
+        //         $d->where('category_id', $q->id);
+        //     })->inRandomOrder()->limit(4)->get();
+        // });
 
-        $data['categories'] = collect($categories);
+        // $data['categories'] = collect($categories);
 
         return view('busana', $data);
     }
@@ -36,7 +36,7 @@ class BusanaController extends Controller
         $product->where('type_id', 2);
         $product->where(function ($q) use ($request) {
             if ($request->user) {
-                $q->whereIn('user_id', $request->user);
+                $q->whereIn('kondisi', $request->user);
             }
         });
         if ($request->order == "price asc") {
