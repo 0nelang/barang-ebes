@@ -22,6 +22,7 @@
                             </tr>
                         </thead>
                         <tbody>
+                            
                             <?php $__empty_1 = true; $__currentLoopData = $home_products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $b): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                                 <tr>
                                     <td><?php echo e($b->type->name); ?></td>

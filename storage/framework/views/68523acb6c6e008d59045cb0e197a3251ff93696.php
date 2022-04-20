@@ -1,10 +1,10 @@
-@extends('layout.admin')
 
-@section('title', 'Admin Dashboard')
 
-@section('page', 'Data Master > FAQ > Tambah')
+<?php $__env->startSection('title', 'Admin Dashboard'); ?>
 
-@section('content')
+<?php $__env->startSection('page', 'Data Master > FAQ > Tambah'); ?>
+
+<?php $__env->startSection('content'); ?>
     <div class="col-lg-12 col-12 layout-spacing">
         <h3 calss="mb-2">Tambah Faq</h3>
         <div class="statbox widget box box-shadow">
@@ -15,20 +15,20 @@
                 </div>
             </div>
             <div class="widget-content widget-content-area">
-                <form action="{{ route('faq.store') }}" method="POST">
-                    @csrf
+                <form action="<?php echo e(route('faq.store')); ?>" method="POST">
+                    <?php echo csrf_field(); ?>
                     <div class="form-group mb-4">
-                        <label for="formGroupExampleInput">Pertanyaan</label>
+                        <label for="formGroupExampleInput">Judul Faq</label>
                         <input type="text" class="form-control" id="formGroupExampleInput" name="pertanyaan"
-                            placeholder="Pertanyaan" required="">
+                            placeholder="Judul Faq" required="">
                     </div>
                     <div class="form-group mb-4">
-                        <label for="exampleFormControlTextarea1">Jawaban</label>
+                        <label for="exampleFormControlTextarea1">Isi</label>
                         <textarea class="summernote form-control" id="summernote" rows="3" name="jawaban" required=""></textarea>
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-10">
-                            <a class="btn btn-danger mt-3" href="{{ route('faq.index') }}"><i
+                            <a class="btn btn-danger mt-3" href="<?php echo e(route('faq.index')); ?>"><i
                                     class="flaticon-cancel-12"></i> Back</a>
                             <button type="submit" class="btn btn-primary mt-3">Simpan</button>
                         </div>
@@ -38,9 +38,9 @@
         </div>
     </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('script')
+<?php $__env->startSection('script'); ?>
     <script type="text/javascript">
         var loadFile = function(event, no) {
             var output = document.getElementById('preview');
@@ -73,4 +73,6 @@
                         }
                     });
     </script>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layout.admin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\Laravel\rumah-ebes\resources\views/faq/create.blade.php ENDPATH**/ ?>

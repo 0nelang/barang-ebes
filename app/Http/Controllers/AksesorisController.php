@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Banner;
+use App\Category;
 use App\Product;
 use App\User;
 use Illuminate\Http\Request;
@@ -12,9 +13,10 @@ class AksesorisController extends Controller
     public function index()
     {
         $data['banners'] = Banner::where('type_id', 3)->get();
-        $data['users'] = $data['users'] = User::whereHas('products', function ($q) {
-            $q->where('type_id', 3);
-        })->get();
+        $data['users'] = Category::all();
+        // User::whereHas('products', function ($q) {
+        //     $q->where('type_id', 3);
+        // })->get();
 
         return view('aksesoris', $data);
     }
@@ -25,7 +27,7 @@ class AksesorisController extends Controller
         $product->where('type_id', 3);
         $product->where(function ($q) use ($request) {
             if ($request->user) {
-                $q->whereIn('user_id', $request->user);
+                $q->whereIn('kondisi', $request->user);
             }
         });
         if ($request->order == "price asc") {

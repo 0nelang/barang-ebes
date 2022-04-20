@@ -18,12 +18,12 @@
                 <form action="<?php echo e(route('faq.store')); ?>" method="POST">
                     <?php echo csrf_field(); ?>
                     <div class="form-group mb-4">
-                        <label for="formGroupExampleInput">Judul Faq</label>
+                        <label for="formGroupExampleInput">Pertanyaan</label>
                         <input type="text" class="form-control" id="formGroupExampleInput" name="pertanyaan"
-                            placeholder="Judul Faq" required="">
+                            placeholder="Pertanyaan" required="">
                     </div>
                     <div class="form-group mb-4">
-                        <label for="exampleFormControlTextarea1">Isi</label>
+                        <label for="exampleFormControlTextarea1">Jawaban</label>
                         <textarea class="summernote form-control" id="summernote" rows="3" name="jawaban" required=""></textarea>
                     </div>
                     <div class="form-group row">

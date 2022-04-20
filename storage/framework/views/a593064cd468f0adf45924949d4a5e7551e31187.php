@@ -97,24 +97,7 @@
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </div>
     <div class="product-collection-grid product-grid pd-top-15" style="background-color: #F9F9F9;">
-        <div class="container mg-bottom-30">
-            <div class="row">
-                <div class="col-md-12 mg-bottom-30 mg-top-30">
-                    <div class="title_custom text-center">
-                        <h1 style="color: #1a3352;">Artikel</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                
-            </div>
-        </div>
-        <div class="mg-top-30 mg-bottom-30">
-            <div class="text-center">
-                <a href="/artikel" class="btn-loadmore">Lihat Semua Artikel &nbsp;&nbsp;&nbsp;<i
-                        class="fa fa-angle-right right"></i></a>
-            </div>
-        </div>
+        
 
         <div class="container ">
             <?php $__currentLoopData = $faq; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $fa): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>

@@ -2,11 +2,11 @@
 
 @section('title', 'Admin Dashboard')
 
-@section('page', 'Pengrajin > pengrajin')
+@section('page', 'Brand > brand')
 
 @section('content')
 <div class="col-lg-12">
-<h3 calss="mb-2">Daftar Pengrajin</h3>
+<h3 calss="mb-2">Daftar Brand</h3>
 <div class="statbox widget box box-shadow">
     <div class="widget-header">
         <div class="row">
@@ -23,13 +23,13 @@
                     <line x1="12" y1="8" x2="12" y2="16"></line>
                     <line x1="8" y1="12" x2="16" y2="12"></line>
                 </svg>
-            </i> Tambah Pengrajin</a>
+            </i> Tambah Brand</a>
         <div class="table-responsive mb-4">
             <table id="zero-config" class="table style-3 table-hover">
                 <thead>
                     <tr>
                         <th></th>
-                        <th>nama toko</th>
+                        <th>Nama Brand</th>
                         <th>pemilik</th>
                         <th>telepon</th>
                         <th class="text-center">Action</th>

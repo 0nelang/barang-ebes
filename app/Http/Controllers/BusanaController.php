@@ -16,8 +16,8 @@ class BusanaController extends Controller
         $data['users'] = User::whereHas('products', function ($q) {
             $q->where('type_id', 2);
         })->get();
-
-        $categories = Category::where('type_id', 2)->whereHas('productDetails')->get();
+        $categories = Category::all();
+        // dd($categories);
 
         $categories->map(function ($q) {
             $q->products = Product::whereHas('details', function ($d) use ($q) {

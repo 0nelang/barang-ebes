@@ -46,8 +46,8 @@ Route::get('bahan_batik', 'BahanBatikController@index');
 Route::get('artikel', 'ArtikelWebController@index');
 Route::get('artikel/{slug}', 'ArtikelWebController@detail');
 
-Route::get('pengrajin', 'PengrajinController@index')->name('pengrajin');
-Route::get('pengrajin/{id}/{name}', 'PengrajinController@detail')->name('pengrajin.detail');
+Route::get('brand', 'PengrajinController@index')->name('pengrajin');
+Route::get('brand/{id}/{name}', 'PengrajinController@detail')->name('pengrajin.detail');
 Route::get('produk-pengrajin/{user_id}', 'PengrajinController@product')->name('pengrajin.all.product');
 Route::post('pengrajin-data', 'PengrajinController@data')->name('pengrajin.data');
 

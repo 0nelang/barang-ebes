@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Str;
+use App\Faq;
 use App\Type;
 use App\Banner;
 use App\Article;
 use App\Product;
-use App\Faq;
 use Illuminate\Http\Request;
 use PhpParser\Node\Stmt\Catch_;
 

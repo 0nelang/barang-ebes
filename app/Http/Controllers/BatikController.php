@@ -14,9 +14,10 @@ class BatikController extends Controller
     public function index()
     {
         $data['banners'] = Banner::where('type_id', 1)->get();
-        $data['users'] = User::whereHas('products', function ($q) {
-            $q->where('type_id', 1);
-        })->get();
+        $data['users'] = Category::all();
+        // User::whereHas('products', function ($q) {
+        //     $q->where('type_id', 1);
+        // })->get();
 
         return view('batik', $data);
     }
@@ -40,11 +41,12 @@ class BatikController extends Controller
 
     public function data(Request $request)
     {
+        // dd($request->user);
         $product = Product::with('productImages')->with('user');
         $product->where('type_id', 1);
         $product->where(function ($q) use ($request) {
             if ($request->user) {
-                $q->whereIn('user_id', $request->user);
+                $q->whereIn('kondisi', $request->user);
             }
         });
         if ($request->order == "price asc") {
