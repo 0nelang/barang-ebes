@@ -2,11 +2,11 @@
 
 <?php $__env->startSection('title', 'Admin Dashboard'); ?>
 
-<?php $__env->startSection('page', 'Data Master > Pengrajin > Edit'); ?>
+<?php $__env->startSection('page', 'Data Master > Brand > Edit'); ?>
 
 <?php $__env->startSection('content'); ?>
     <div class="col-lg-12 col-12 layout-spacing">
-        <h3 calss="mb-2">Edit Pengrajin</h3>
+        <h3 calss="mb-2">Edit Brand</h3>
         <div class="statbox widget box box-shadow">
             <div class="widget-header">
                 <div class="row">
@@ -22,9 +22,9 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group mb-4">
-                                <label for="name">Nama Toko</label>
+                                <label for="name">Nama Brand</label>
                                 <input type="text" class="form-control" id="name" name="name" value="<?php echo e($user->name); ?>"
-                                    placeholder="Nama Toko" required="">
+                                    placeholder="Nama Brand" required="">
                             </div>
                         </div>
                         <div class="col-md-4">

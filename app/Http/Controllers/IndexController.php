@@ -8,7 +8,6 @@ use App\Type;
 use App\Banner;
 use App\Article;
 use App\Product;
-use App\Category;
 use Illuminate\Http\Request;
 use PhpParser\Node\Stmt\Catch_;
 
@@ -18,7 +17,6 @@ class IndexController extends Controller
     {
         $data['banners'] = Banner::where('type_id', null)->get();
         $categories = Type::whereHas('products')->get();
-
         $categories->map(function ($q) {
             $q->products = Product::where('type_id', $q->id)
                 ->inRandomOrder()->limit(4)->get();
@@ -27,7 +25,6 @@ class IndexController extends Controller
         $data['types'] = collect($categories);
         $data['articles'] = Article::inRandomOrder()->limit(3)->get();
         $data['faq'] = Faq::all();
-
         return view('index', $data);
     }
 

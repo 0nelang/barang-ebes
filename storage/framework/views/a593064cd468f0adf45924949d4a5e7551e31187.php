@@ -54,6 +54,7 @@
                             <h1 class="text-uppercase"><?php echo e($type->name); ?></h1>
                         </div>
                     </div>
+                    
                     <?php $__currentLoopData = $type->homeProducts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <div class="col-xs-12 col-md-3 product-item">
                             <div class="product-img">
@@ -96,42 +97,7 @@
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </div>
     <div class="product-collection-grid product-grid pd-top-15" style="background-color: #F9F9F9;">
-        <div class="container mg-bottom-30">
-            <div class="row">
-                <div class="col-md-12 mg-bottom-30 mg-top-30">
-                    <div class="title_custom text-center">
-                        <h1 style="color: #1a3352;">Artikel</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <?php $__currentLoopData = $articles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $a): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <div class="col-md-4 col-xs-12">
-                        <div class="card_article">
-                            <img src="<?php echo e(asset('storage/' . $a->image)); ?>" alt="Rumah Batik Probolinggo" />
-                            <div class="card_article_body">
-                                <h4 class="text-uppercase">
-                                    <a href="/artikel/<?php echo e($a->slug); ?>"><?php echo e($a->title); ?></a>
-                                </h4>
-
-                                <p>
-                                    <?php echo substr(strip_tags($a->text), 0, 100); ?>...
-                                </p>
-                                <div class="article_more">
-                                    <a href="/artikel/<?php echo e($a->slug); ?>">Baca Selengkapnya</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-            </div>
-        </div>
-        <div class="mg-top-30 mg-bottom-30">
-            <div class="text-center">
-                <a href="/artikel" class="btn-loadmore">Lihat Semua Artikel &nbsp;&nbsp;&nbsp;<i
-                        class="fa fa-angle-right right"></i></a>
-            </div>
-        </div>
+        
 
         <div class="container ">
             <?php $__currentLoopData = $faq; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $fa): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
