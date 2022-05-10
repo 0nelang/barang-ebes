@@ -200,25 +200,12 @@
                                     placeholder="Kosongkan jika tidak ada" value="<?php echo e($product->tokopedia); ?>">
                             </div>
                         </div>
+                        
                         <div class="col-md-12">
-                            <div class="row">
-                                <?php $__empty_1 = true; $__currentLoopData = $product_images; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product_image): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                                    <div class="col-md-3" id="image<?php echo e($product_image->id); ?>">
-                                        <img src="<?php echo e(asset('storage/' . $product_image->image)); ?>"
-                                            alt="Rumah Batik Probolinggo" srcset="" class="w-100">
-
-                                        <button type="button" class="btn btn-danger btn-block"
-                                            onclick="deleteImage(<?php echo e($product_image->id); ?>)">Hapus</button>
-                                    </div>
-                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
-                                <?php endif; ?>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group mb-4 mt-3">
-                                <label for="exampleFormControlFile1">Upload Gambar</label>
-                                <input type="file" class="form-control-file" id="exampleFormControlFile1" name="images[]"
-                                    multiple max="5" accept="image/*">
+                            
+                            <div class="input-field">
+                                <label class="active">Photos</label>
+                                <div class="input-images-1" style="padding-top: .5rem;"></div>
                             </div>
                         </div>
                     </div>
@@ -238,6 +225,20 @@
 <?php $__env->startSection('script'); ?>
     <script src="<?php echo e(asset('js/product.js')); ?>"></script>
     <script type="text/javascript">
+        // $('.input-images-1').imageUploader();
+
+        let preloaded = [
+            <?php $__currentLoopData = $product_images; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product_image): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                {id: <?php echo e($product_image->id); ?>, src: '<?php echo e(asset("storage/" . $product_image->image)); ?>'},
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        ];
+
+        $('.input-images-1').imageUploader({
+            preloaded: preloaded,
+            imagesInputName: 'photos',
+            preloadedInputName: 'old'
+        });
+        
         var loadFile = function(event, no) {
             var output = document.getElementById('preview');
             output.src = URL.createObjectURL(event.target.files[0]);

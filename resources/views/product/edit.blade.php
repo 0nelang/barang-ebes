@@ -203,12 +203,12 @@
                                     placeholder="Kosongkan jika tidak ada" value="{{ $product->tokopedia }}">
                             </div>
                         </div>
-                        <div class="col-md-12">
+                        {{-- <div class="col-md-12">
                             <div class="row">
                                 @forelse ($product_images as $product_image)
-                                    <div class="col-md-3" id="image{{ $product_image->id }}">
+                                    <div class="col-md-3" id="image{{ $product_image->id }}" >
                                         <img src="{{ asset('storage/' . $product_image->image) }}"
-                                            alt="Rumah Batik Probolinggo" srcset="" class="w-100">
+                                            alt="Rumah Batik Probolinggo" srcset="" class="w-100" style="width: 250px; height: 150px; object-fit:cover">
 
                                         <button type="button" class="btn btn-danger btn-block"
                                             onclick="deleteImage({{ $product_image->id }})">Hapus</button>
@@ -216,12 +216,16 @@
                                 @empty
                                 @endforelse
                             </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group mb-4 mt-3">
+                        </div> --}}
+                        <div class="col-md-12">
+                            {{-- <div class="form-group mb-4 mt-3">
                                 <label for="exampleFormControlFile1">Upload Gambar</label>
                                 <input type="file" class="form-control-file" id="exampleFormControlFile1" name="images[]"
                                     multiple max="5" accept="image/*">
+                            </div> --}}
+                            <div class="input-field">
+                                <label class="active">Photos</label>
+                                <div class="input-images-1" style="padding-top: .5rem;"></div>
                             </div>
                         </div>
                     </div>
@@ -241,6 +245,20 @@
 @section('script')
     <script src="{{ asset('js/product.js') }}"></script>
     <script type="text/javascript">
+        // $('.input-images-1').imageUploader();
+
+        let preloaded = [
+            @foreach ( $product_images as $product_image )
+                {id: {{ $product_image->id }}, src: '{{ asset("storage/" . $product_image->image) }}'},
+            @endforeach
+        ];
+
+        $('.input-images-1').imageUploader({
+            preloaded: preloaded,
+            imagesInputName: 'photos',
+            preloadedInputName: 'old'
+        });
+        
         var loadFile = function(event, no) {
             var output = document.getElementById('preview');
             output.src = URL.createObjectURL(event.target.files[0]);

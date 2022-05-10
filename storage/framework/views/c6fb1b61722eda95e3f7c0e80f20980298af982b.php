@@ -15,8 +15,17 @@
                             <div class="col-md-6 col-xl-3">
                                 <div class="card stat-widget">
                                     <div class="card-body">
-                                        <h5 class="card-title">Total Produk Ready</h5>
+                                        <h5 class="card-title">Total Produk</h5>
                                         <h2><?php echo e($total); ?></h2>
+                                        <p>TOTAL</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xl-3">
+                                <div class="card stat-widget">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Total Produk Ready</h5>
+                                        <h2><?php echo e($total - $terjual); ?></h2>
                                         <p>TOTAL</p>
                                     </div>
                                 </div>

@@ -22,7 +22,9 @@ $setting = App\Setting::first();
     <!-- END GLOBAL MANDATORY STYLES -->
 
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
-
+    
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link type="text/css" rel="stylesheet" href="<?php echo e(asset('admin/plugins/image-uploader/image-uploader.min.css')); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('admin/plugins/table/datatable/datatables.css')); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('admin/assets/css/forms/theme-checkbox-radio.css')); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('admin/plugins/table/datatable/dt-global_style.css')); ?>">
@@ -184,6 +186,7 @@ $setting = App\Setting::first();
     <script src="<?php echo e(asset('admin/plugins/summernote/summernote-lite.min.js')); ?>"></script>
     <script src="<?php echo e(asset('admin/plugins/select2/select2.min.js')); ?>"></script>
     <script src="<?php echo e(asset('admin/assets/js/custom.js')); ?>"></script>
+    <script type="text/javascript" src="<?php echo e(asset('admin/plugins/image-uploader/image-uploader.min.js')); ?>"></script>
     <script src="/admin/assets/js/app.js"></script>
     <script>
         $(document).ready(function() {

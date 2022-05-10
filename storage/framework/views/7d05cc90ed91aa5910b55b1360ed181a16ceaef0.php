@@ -83,23 +83,16 @@ $format_number = '628' . $format_number[1];
             </form>
             <ul class="nav-home5 js-menubar">
                 <li class="level1 dropdown">
-                    <a href="/kain-batik">Kain Batik</a>
+                    <a href="/jaket">Jaket</a>
                     
                 </li>
                 <li class="level1 dropdown">
-                    <a href="/busana">Busana</a>
-                    <span class="icon-sub-menu"></span>
-                    <div class="menu-level1 js-open-menu">
-                        
-                        <div class="clearfix"></div>
-                    </div>
+                    <a href="/parka">Parka</a>
+                    
                 </li>
                 <li class="level1 dropdown">
-                    <a href="/aksesoris">Aksesoris</a>
-                    <span class="icon-sub-menu"></span>
-                    <div class="menu-level1 js-open-menu">
-                        
-                    </div>
+                    <a href="/vest">Vest</a>
+                    
                 </li>
                 <li class="level1 dropdown">
                     <a href="/dekorasi">Dekorasi</a>

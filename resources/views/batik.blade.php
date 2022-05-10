@@ -1,6 +1,6 @@
 @extends('layout.app')
 @section('meta') @include('layout.meta') @endsection
-
+{{-- @dd($response) --}}
 @section('title', 'Kain Batik')
 
 @section('content')
@@ -32,6 +32,7 @@
             </div>
             <div class="widget-filter filter-cate no-pd-top">
                 <ul>
+                    {{-- @dd($users) --}}
                     @foreach ($users as $user)
                         <li>
                             <label class="form-check">{{ $user->name }}

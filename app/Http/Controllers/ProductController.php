@@ -15,6 +15,7 @@ use App\Subcategory;
 use App\ProductImage;
 use App\ProductDetail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage as FacadesStorage;
 
 class ProductController extends Controller
 {
@@ -165,6 +166,7 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         DB::beginTransaction();
+
         try {
             $product = Product::find($id);
             $product->user_id = $request->user_id;
@@ -202,9 +204,21 @@ class ProductController extends Controller
                 $data->terjual = Product::where('sold', 1)->count();
                 $data->total = Product::all()->count();
                 $data->save();
-
-                if ($request->images) {
-                    foreach ($request->images as $key => $image) {
+                $imgs = ProductImage::where('product_id', $id)->get();
+                // dd($request->photos);
+                foreach ($imgs as $img) {
+                    // dd($request->old);   
+                    if ($request->old == null) {
+                        $request->old = [];
+                    }
+                    if (!in_array($img->id, $request->old)) {
+                        # code...
+                        Storage::delete($img->image);
+                        $img->delete();
+                    }
+                }
+                if ($request->photos) {
+                    foreach ($request->photos as $key => $image) {
                         $fileName = time() . rand(1, 1000) . '_' . Str::slug($request->name) . ".jpg";
 
                         $image = Image::make($image);

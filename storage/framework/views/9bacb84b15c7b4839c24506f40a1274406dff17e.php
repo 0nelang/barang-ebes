@@ -31,6 +31,7 @@
             </div>
             <div class="widget-filter filter-cate no-pd-top">
                 <ul>
+                    
                     <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <li>
                             <label class="form-check"><?php echo e($user->name); ?>

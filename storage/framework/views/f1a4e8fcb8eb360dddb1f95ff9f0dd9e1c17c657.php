@@ -59,8 +59,8 @@
                                         <th class="col-7">
                                             <div class="form-group">
                                                 <label for="category_id">Kategori</label>
-                                                <select id="category_id" class="form-control select2"
-                                                    onchange="getCode()" name="category">
+                                                <select id="category_id" class="form-control select2" onchange="getCode()"
+                                                    name="category">
                                                     <option value="">Pilih Kategori</option>
                                                     <option value="atas">Atas</option>
                                                     <option value="bawah">Bawah</option>
@@ -144,12 +144,11 @@
                                     placeholder="Kosongkan jika tidak ada">
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group mb-4 mt-3">
-                                <label for="exampleFormControlFile1">Upload Gambar</label>
-                                <img src="" width="100%" class="mb-3" id="preview" required="">
-                                <input type="file" class="form-control-file" id="exampleFormControlFile1" name="images[]"
-                                    required="" multiple max="5" accept="image/*">
+                        <div class="col-md-12">
+                            
+                            <div class="input-field">
+                                <label class="active">Photos</label>
+                                <div class="input-images-1" style="padding-top: .5rem;"></div>
                             </div>
                         </div>
                     </div>
@@ -169,6 +168,23 @@
 <?php $__env->startSection('script'); ?>
     <script src="<?php echo e(asset('js/product.js')); ?>"></script>
     <script type="text/javascript">
+        $('.input-images-1').imageUploader();
+        $("div#Image").dropzone({
+            url: "null"
+        });
+        // import Dropzone from "dropzone";
+
+        // let myDropzone = Dropzone({
+        //     paramName: "file", // The name that will be used to transfer the file
+        //     maxFilesize: 2, // MB
+        //     accept: function(file, done) {
+        //         if (file.name == "justinbieber.jpg") {
+        //             done("Naha, you don't.");
+        //         } else {
+        //             done();
+        //         }
+        //     }
+        // });
         var loadFile = function(event, no) {
             var output = document.getElementById('preview');
             output.src = URL.createObjectURL(event.target.files[0]);

@@ -45,6 +45,7 @@ class BatikController extends Controller
         $product = Product::with('productImages')->with('user');
         $product->where('type_id', 1);
         $product->where(function ($q) use ($request) {
+            // dd($request->user);
             if ($request->user) {
                 $q->whereIn('kondisi', $request->user);
             }
