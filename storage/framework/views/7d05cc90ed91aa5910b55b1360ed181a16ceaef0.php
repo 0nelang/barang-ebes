@@ -94,29 +94,11 @@ $format_number = '628' . $format_number[1];
                     <a href="/vest">Vest</a>
                     
                 </li>
-                <li class="level1 dropdown">
-                    <a href="/dekorasi">Dekorasi</a>
-                    <span class="icon-sub-menu"></span>
-                    <div class="menu-level1 js-open-menu">
-                        <ul class="level1">
-                            <li class="level2">
-                                
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="level1"><a href="bahan-batik">Bahan Batik</a></li>
-                <li class="level1 dropdown">
-                    <a href="<?php echo e(route('pengrajin')); ?>">Pengrajin</a>
-                    <span class="icon-sub-menu"></span>
-                    <div class="menu-level1 js-open-menu">
-                        
-                        <div class="clearfix"></div>
-                    </div>
-                </li>
-                <li class="level1"><a href="/katalog">Katalog</a></li>
-                <li class="level1"><a href="/coffee">Kopi</a></li>
-                <li class="level1"><a href="/artikel">Artikel</a></li>
+                
+                
+                
+                <li class="level1"><a href="/coffee">Cara Order</a></li>
+                <li class="level1"><a href="/tentang">About Us</a></li>
             </ul>
 
         </div>

@@ -62,7 +62,7 @@ $setting = App\Setting::first();
 
             <ul class="navbar-item theme-brand flex-row  text-center">
                 <li class="nav-item theme-logo">
-                    <a href="{{ route('dashboard.index') }}">
+                    <a href="/">
                         <img src="{{ asset('storage/' . $setting->image) }}" class="navbar-logo" alt="logo">
                     </a>
                 </li>

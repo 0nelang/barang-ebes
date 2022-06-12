@@ -72,6 +72,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('product/subcategory/{id}', 'ProductController@subcategory');
     Route::post('product/image/destroy', 'ProductController@imageDestroy');
     Route::post('product/detail/destroy', 'ProductController@detailDestroy');
+    Route::get('getProduct', 'ProductController@getProduct')->name('getProduct'); 
     Route::get('profile', 'UserController@profile')->name('profile');
     Route::put('profile-update/{user}', 'UserController@profileUpdate')->name('profile.update');
 

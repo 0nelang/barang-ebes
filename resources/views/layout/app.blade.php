@@ -185,13 +185,13 @@ $format_number = '628' . $format_number[1];
                         </ul>
                     </div> --}}
                 </li>
-                <li class="level1 dropdown">
+                {{-- <li class="level1 dropdown">
                     <a href="/dekorasi">Dekorasi</a>
                     <span class="icon-sub-menu"></span>
                     <div class="menu-level1 js-open-menu">
                         <ul class="level1">
                             <li class="level2">
-                                {{-- <ul class="menu-level-2">
+                                <ul class="menu-level-2">
                                     @php
                                         $dekorasi_categories = App\Category::where('type_id', 4)->get();
                                     @endphp
@@ -200,17 +200,17 @@ $format_number = '628' . $format_number[1];
                                                 href="{{ route('product.all', ['type' => 'dekorasi', 'category' => Str::slug($dekorasi_category->name)]) }}"
                                                 title="">{{ $dekorasi_category->name }}</a></li>
                                     @endforeach
-                                </ul> --}}
+                                </ul>
                             </li>
                         </ul>
                     </div>
-                </li>
-                <li class="level1"><a href="bahan-batik">Bahan Batik</a></li>
+                </li> --}}
+                {{-- <li class="level1"><a href="bahan-batik">Bahan Batik</a></li>
                 <li class="level1 dropdown">
                     <a href="{{ route('pengrajin') }}">Pengrajin</a>
                     <span class="icon-sub-menu"></span>
                     <div class="menu-level1 js-open-menu">
-                        {{-- <ul class="level1">
+                        <ul class="level1">
                             <li class="level2">
                                 <ul class="menu-level-2">
                                     @foreach ($users as $user)
@@ -220,13 +220,13 @@ $format_number = '628' . $format_number[1];
                                     @endforeach
                                 </ul>
                             </li>
-                        </ul> --}}
+                        </ul>
                         <div class="clearfix"></div>
                     </div>
-                </li>
-                <li class="level1"><a href="/katalog">Katalog</a></li>
-                <li class="level1"><a href="/coffee">Kopi</a></li>
-                <li class="level1"><a href="/artikel">Artikel</a></li>
+                </li> --}}
+                {{-- <li class="level1"><a href="/katalog">Katalog</a></li> --}}
+                <li class="level1"><a href="/coffee">Cara Order</a></li>
+                <li class="level1"><a href="/tentang">About Us</a></li>
             </ul>
 
         </div>

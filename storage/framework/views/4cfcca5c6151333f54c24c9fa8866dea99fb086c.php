@@ -23,7 +23,10 @@
                         </svg>
                     </i> Tambah Produk</a>
                 <div class="table-responsive mb-4">
-                    <table id="zero-config" class="table style-3 table-hover">
+
+                    
+
+                    <table class="table table-bordered yajra-datatable style-3 table-hover">
                         <thead>
                             <tr>
                                 <th class="text-center">Image</th>
@@ -35,58 +38,6 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $__empty_1 = true; $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $b): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                            
-                                <tr>
-                                    <td class="text-center product-img">
-                                        <span><img src="
-                                            <?php if($b->productImages->isEmpty()): ?>
-                                            <?php else: ?>
-                                            <?php echo e(asset('storage/' . $b->productImages[0]->image)); ?>
-
-                                            <?php endif; ?>
-                                            "width="100px"></span>
-                                    </td>
-                                    <td><?php echo e($b->user->name); ?></td>
-                                    <td><?php echo e($b->type->name); ?></td>
-                                    <td><?php echo e($b->name); ?></td>
-                                    <td><?php echo e(substr(strip_tags($b->description), 0, 200)); ?>...</td>
-                                    <td class="text-center">
-                                        <ul class="table-controls">
-                                            <li><a href="<?php echo e(route('product.show', $b->id)); ?>" class="bs-tooltip"
-                                                    data-toggle="tooltip" data-placement="top" title=""
-                                                    data-original-title="Edit"><svg xmlns="http://www.w3.org/2000/svg"
-                                                        width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                        stroke-linejoin="round"
-                                                        class="feather feather-edit-2 p-1 br-6 mb-1">
-                                                        <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z">
-                                                        </path>
-                                                    </svg></a></li>
-                                            <li>
-                                                <a href="#" onclick="deleteData(<?php echo e($b->id); ?>)" class="bs-tooltip"
-                                                    data-toggle="tooltip" data-placement="top" title=""
-                                                    data-original-title="Delete"><svg xmlns="http://www.w3.org/2000/svg"
-                                                        width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                        stroke-linejoin="round" class="feather feather-trash p-1 br-6 mb-1">
-                                                        <polyline points="3 6 5 6 21 6"></polyline>
-                                                        <path
-                                                            d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
-                                                        </path>
-                                                    </svg>
-                                                </a>
-                                                <form action="<?php echo e(route('product.destroy', ['product' => $b->id])); ?>"
-                                                    method="POST" id="form-delete<?php echo e($b->id); ?>">
-                                                    <input type="hidden" name="_method" value="DELETE">
-                                                    <?php echo csrf_field(); ?>
-                                                </form>
-                                            </li>
-                                        </ul>
-                                    </td>
-                                </tr>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
-                            <?php endif; ?>
                         </tbody>
                     </table>
                 </div>
@@ -97,6 +48,58 @@
 
 <?php $__env->startSection('script'); ?>
     <script>
+        $(function() {
+
+            var table = $('.yajra-datatable').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: "<?php echo e(route('getProduct')); ?>",
+                "order": [
+                    [0, "desc"]
+                ],
+                columns: [{
+                        data: 'image',
+                        name: 'image',
+                        orderable: true,
+                        searchable: true,
+                        className: 'text-center product-img'
+                    },
+                    {
+                        data: 'pengrajin',
+                        name: 'pengrajin'
+                    },
+                    {
+                        data: 'kategori',
+                        name: 'kategori'
+                    },
+                    {
+                        data: 'name',
+                        name: 'nama produk'
+                    },
+                    {
+                        data: 'deskripsi',
+                        name: 'deskripsi'
+                    },
+                    // {
+                    //     data: 'Nama Produk',
+                    //     name: 'name'
+                    // },
+                    // {
+                    //     data: 'Deskripsi',
+                    //     name: 'description'
+                    // },
+                    {
+                        data: 'action',
+                        name: 'action',
+                        orderable: true,
+                        searchable: true,
+                        className: 'text-center'
+                    },
+                ]
+            });
+
+        });
+
         function doDelete(id) {
 
             Swal.fire({
